@@ -1,4 +1,4 @@
-####Practical Machine Learning - Human Activity Recognition Prediction Project#####
+####Practical Machine Learning - Human Activity Recognition Project#####
 ######By Jean Rene Ndeki######
 ######Wednesday, November 19, 2014######
 
@@ -117,14 +117,14 @@ print(modFit)
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 7
 ## 
-##         OOB estimate of  error rate: 0.6%
+##         OOB estimate of  error rate: 0.53%
 ## Confusion matrix:
 ##      A    B    C    D    E class.error
-## A 3902    3    1    0    0 0.001024066
-## B   16 2635    7    0    0 0.008653123
-## C    0   15 2379    2    0 0.007095159
-## D    0    0   23 2226    3 0.011545293
-## E    0    0    2   10 2513 0.004752475
+## A 3902    2    0    1    1 0.001024066
+## B   12 2641    5    0    0 0.006395786
+## C    0   14 2378    4    0 0.007512521
+## D    0    0   23 2227    2 0.011101243
+## E    0    0    3    6 2516 0.003564356
 ```
 
 ####V. Cross Validation and Testing####
@@ -150,33 +150,33 @@ confusionMatrix(validation$classe, predcv)
 ## 
 ##           Reference
 ## Prediction    A    B    C    D    E
-##          A 1672    2    0    0    0
-##          B    5 1133    1    0    0
-##          C    0    5 1017    4    0
-##          D    0    0   19  945    0
-##          E    0    0    0    4 1078
+##          A 1674    0    0    0    0
+##          B    4 1134    1    0    0
+##          C    0    7 1019    0    0
+##          D    0    0    7  957    0
+##          E    0    0    0    3 1079
 ## 
 ## Overall Statistics
 ##                                           
-##                Accuracy : 0.9932          
-##                  95% CI : (0.9908, 0.9951)
-##     No Information Rate : 0.285           
+##                Accuracy : 0.9963          
+##                  95% CI : (0.9943, 0.9977)
+##     No Information Rate : 0.2851          
 ##     P-Value [Acc > NIR] : < 2.2e-16       
 ##                                           
-##                   Kappa : 0.9914          
+##                   Kappa : 0.9953          
 ##  Mcnemar's Test P-Value : NA              
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            0.9970   0.9939   0.9807   0.9916   1.0000
-## Specificity            0.9995   0.9987   0.9981   0.9961   0.9992
-## Pos Pred Value         0.9988   0.9947   0.9912   0.9803   0.9963
-## Neg Pred Value         0.9988   0.9985   0.9959   0.9984   1.0000
-## Prevalence             0.2850   0.1937   0.1762   0.1619   0.1832
-## Detection Rate         0.2841   0.1925   0.1728   0.1606   0.1832
+## Sensitivity            0.9976   0.9939   0.9922   0.9969   1.0000
+## Specificity            1.0000   0.9989   0.9986   0.9986   0.9994
+## Pos Pred Value         1.0000   0.9956   0.9932   0.9927   0.9972
+## Neg Pred Value         0.9991   0.9985   0.9984   0.9994   1.0000
+## Prevalence             0.2851   0.1939   0.1745   0.1631   0.1833
+## Detection Rate         0.2845   0.1927   0.1732   0.1626   0.1833
 ## Detection Prevalence   0.2845   0.1935   0.1743   0.1638   0.1839
-## Balanced Accuracy      0.9983   0.9963   0.9894   0.9939   0.9996
+## Balanced Accuracy      0.9988   0.9964   0.9954   0.9977   0.9997
 ```
 
 #####V.2 Cross Validation Out of Sample Error#####
@@ -239,58 +239,58 @@ str(training)
 
 ```
 ## 'data.frame':	13737 obs. of  53 variables:
-##  $ roll_belt           : num  1.41 1.42 1.48 1.42 1.43 1.45 1.45 1.43 1.42 1.45 ...
-##  $ pitch_belt          : num  8.07 8.07 8.07 8.09 8.16 8.17 8.18 8.18 8.21 8.2 ...
+##  $ roll_belt           : num  1.41 1.42 1.48 1.45 1.42 1.42 1.43 1.45 1.43 1.42 ...
+##  $ pitch_belt          : num  8.07 8.07 8.07 8.06 8.09 8.13 8.16 8.17 8.18 8.2 ...
 ##  $ yaw_belt            : num  -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 ...
 ##  $ total_accel_belt    : int  3 3 3 3 3 3 3 3 3 3 ...
-##  $ gyros_belt_x        : num  0 0 0.02 0.02 0.02 0.03 0.03 0.02 0.02 0 ...
+##  $ gyros_belt_x        : num  0 0 0.02 0.02 0.02 0.02 0.02 0.03 0.02 0.02 ...
 ##  $ gyros_belt_y        : num  0 0 0.02 0 0 0 0 0 0 0 ...
-##  $ gyros_belt_z        : num  -0.02 -0.02 -0.02 -0.02 -0.02 0 -0.02 -0.02 -0.02 0 ...
-##  $ accel_belt_x        : int  -21 -20 -21 -22 -20 -21 -21 -22 -22 -21 ...
-##  $ accel_belt_y        : int  4 5 2 3 2 4 2 2 4 2 ...
-##  $ accel_belt_z        : int  22 23 24 21 24 22 23 23 21 22 ...
-##  $ magnet_belt_x       : int  -3 -2 -6 -4 1 -3 -5 -2 -8 -1 ...
-##  $ magnet_belt_y       : int  599 600 600 599 602 609 596 602 598 597 ...
-##  $ magnet_belt_z       : int  -313 -305 -302 -311 -312 -308 -317 -319 -310 -310 ...
-##  $ roll_arm            : num  -128 -128 -128 -128 -128 -128 -128 -128 -128 -129 ...
-##  $ pitch_arm           : num  22.5 22.5 22.1 21.9 21.7 21.6 21.5 21.5 21.4 21.4 ...
+##  $ gyros_belt_z        : num  -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 0 -0.02 0 ...
+##  $ accel_belt_x        : int  -21 -20 -21 -21 -22 -22 -20 -21 -22 -22 ...
+##  $ accel_belt_y        : int  4 5 2 4 3 4 2 4 2 4 ...
+##  $ accel_belt_z        : int  22 23 24 21 21 21 24 22 23 21 ...
+##  $ magnet_belt_x       : int  -3 -2 -6 0 -4 -2 1 -3 -2 -3 ...
+##  $ magnet_belt_y       : int  599 600 600 603 599 603 602 609 602 606 ...
+##  $ magnet_belt_z       : int  -313 -305 -302 -312 -311 -313 -312 -308 -319 -309 ...
+##  $ roll_arm            : num  -128 -128 -128 -128 -128 -128 -128 -128 -128 -128 ...
+##  $ pitch_arm           : num  22.5 22.5 22.1 22 21.9 21.8 21.7 21.6 21.5 21.4 ...
 ##  $ yaw_arm             : num  -161 -161 -161 -161 -161 -161 -161 -161 -161 -161 ...
 ##  $ total_accel_arm     : int  34 34 34 34 34 34 34 34 34 34 ...
-##  $ gyros_arm_x         : num  0 0.02 0 0 0.02 0.02 0.02 0.02 0.02 0.02 ...
-##  $ gyros_arm_y         : num  0 -0.02 -0.03 -0.03 -0.03 -0.03 -0.03 -0.03 0 0 ...
-##  $ gyros_arm_z         : num  -0.02 -0.02 0 0 -0.02 -0.02 0 0 -0.03 -0.03 ...
-##  $ accel_arm_x         : int  -288 -289 -289 -289 -288 -288 -290 -288 -288 -289 ...
-##  $ accel_arm_y         : int  109 110 111 111 109 110 110 111 111 111 ...
-##  $ accel_arm_z         : int  -123 -126 -123 -125 -122 -124 -123 -123 -124 -124 ...
-##  $ magnet_arm_x        : int  -368 -368 -374 -373 -369 -376 -366 -363 -371 -374 ...
-##  $ magnet_arm_y        : int  337 344 337 336 341 334 339 343 331 342 ...
-##  $ magnet_arm_z        : int  516 513 506 509 518 516 509 520 523 510 ...
-##  $ roll_dumbbell       : num  13.1 12.9 13.4 13.1 13.2 ...
-##  $ pitch_dumbbell      : num  -70.5 -70.3 -70.4 -70.2 -70.4 ...
-##  $ yaw_dumbbell        : num  -84.9 -85.1 -84.9 -85.1 -84.9 ...
+##  $ gyros_arm_x         : num  0 0.02 0 0.02 0 0.02 0.02 0.02 0.02 0.02 ...
+##  $ gyros_arm_y         : num  0 -0.02 -0.03 -0.03 -0.03 -0.02 -0.03 -0.03 -0.03 -0.02 ...
+##  $ gyros_arm_z         : num  -0.02 -0.02 0 0 0 0 -0.02 -0.02 0 -0.02 ...
+##  $ accel_arm_x         : int  -288 -289 -289 -289 -289 -289 -288 -288 -288 -287 ...
+##  $ accel_arm_y         : int  109 110 111 111 111 111 109 110 111 111 ...
+##  $ accel_arm_z         : int  -123 -126 -123 -122 -125 -124 -122 -124 -123 -124 ...
+##  $ magnet_arm_x        : int  -368 -368 -374 -369 -373 -372 -369 -376 -363 -372 ...
+##  $ magnet_arm_y        : int  337 344 337 342 336 338 341 334 343 338 ...
+##  $ magnet_arm_z        : int  516 513 506 513 509 510 518 516 520 509 ...
+##  $ roll_dumbbell       : num  13.1 12.9 13.4 13.4 13.1 ...
+##  $ pitch_dumbbell      : num  -70.5 -70.3 -70.4 -70.8 -70.2 ...
+##  $ yaw_dumbbell        : num  -84.9 -85.1 -84.9 -84.5 -85.1 ...
 ##  $ total_accel_dumbbell: int  37 37 37 37 37 37 37 37 37 37 ...
-##  $ gyros_dumbbell_x    : num  0 0 0 0 0 0 0 0 0.02 0 ...
+##  $ gyros_dumbbell_x    : num  0 0 0 0 0 0 0 0 0 0 ...
 ##  $ gyros_dumbbell_y    : num  -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 ...
-##  $ gyros_dumbbell_z    : num  0 0 0 0 0 0 0 0 -0.02 0 ...
-##  $ accel_dumbbell_x    : int  -234 -232 -233 -232 -232 -235 -233 -233 -234 -234 ...
-##  $ accel_dumbbell_y    : int  47 46 48 47 47 48 47 47 48 47 ...
-##  $ accel_dumbbell_z    : int  -271 -270 -270 -270 -269 -270 -269 -270 -268 -270 ...
-##  $ magnet_dumbbell_x   : int  -559 -561 -554 -551 -549 -558 -564 -554 -554 -554 ...
-##  $ magnet_dumbbell_y   : int  293 298 292 295 292 291 299 291 295 294 ...
-##  $ magnet_dumbbell_z   : num  -65 -63 -68 -70 -65 -69 -64 -65 -68 -63 ...
-##  $ roll_forearm        : num  28.4 28.3 28 27.9 27.7 27.7 27.6 27.5 27.2 27.2 ...
-##  $ pitch_forearm       : num  -63.9 -63.9 -63.9 -63.9 -63.8 -63.8 -63.8 -63.8 -63.9 -63.9 ...
-##  $ yaw_forearm         : num  -153 -152 -152 -152 -152 -152 -152 -152 -151 -151 ...
+##  $ gyros_dumbbell_z    : num  0 0 0 0 0 0 0 0 0 -0.02 ...
+##  $ accel_dumbbell_x    : int  -234 -232 -233 -234 -232 -234 -232 -235 -233 -234 ...
+##  $ accel_dumbbell_y    : int  47 46 48 48 47 46 47 48 47 48 ...
+##  $ accel_dumbbell_z    : int  -271 -270 -270 -269 -270 -272 -269 -270 -270 -269 ...
+##  $ magnet_dumbbell_x   : int  -559 -561 -554 -558 -551 -555 -549 -558 -554 -552 ...
+##  $ magnet_dumbbell_y   : int  293 298 292 294 295 300 292 291 291 302 ...
+##  $ magnet_dumbbell_z   : num  -65 -63 -68 -66 -70 -74 -65 -69 -65 -69 ...
+##  $ roll_forearm        : num  28.4 28.3 28 27.9 27.9 27.8 27.7 27.7 27.5 27.2 ...
+##  $ pitch_forearm       : num  -63.9 -63.9 -63.9 -63.9 -63.9 -63.8 -63.8 -63.8 -63.8 -63.9 ...
+##  $ yaw_forearm         : num  -153 -152 -152 -152 -152 -152 -152 -152 -152 -151 ...
 ##  $ total_accel_forearm : int  36 36 36 36 36 36 36 36 36 36 ...
-##  $ gyros_forearm_x     : num  0.03 0.03 0.02 0.02 0.03 0.02 0.02 0.02 0 0 ...
-##  $ gyros_forearm_y     : num  0 -0.02 0 0 0 0 -0.02 0.02 -0.02 -0.02 ...
-##  $ gyros_forearm_z     : num  -0.02 0 -0.02 -0.02 -0.02 -0.02 -0.02 -0.03 -0.03 -0.02 ...
-##  $ accel_forearm_x     : int  192 196 189 195 193 190 193 191 193 192 ...
-##  $ accel_forearm_y     : int  203 204 206 205 204 205 205 203 202 201 ...
-##  $ accel_forearm_z     : int  -215 -213 -214 -215 -214 -215 -214 -215 -214 -214 ...
-##  $ magnet_forearm_x    : int  -17 -18 -17 -18 -16 -22 -17 -11 -14 -16 ...
-##  $ magnet_forearm_y    : num  654 658 655 659 653 656 657 657 659 656 ...
-##  $ magnet_forearm_z    : num  476 469 473 470 476 473 465 478 478 472 ...
+##  $ gyros_forearm_x     : num  0.03 0.03 0.02 0.02 0.02 0.02 0.03 0.02 0.02 0 ...
+##  $ gyros_forearm_y     : num  0 -0.02 0 -0.02 0 -0.02 0 0 0.02 0 ...
+##  $ gyros_forearm_z     : num  -0.02 0 -0.02 -0.03 -0.02 0 -0.02 -0.02 -0.03 -0.03 ...
+##  $ accel_forearm_x     : int  192 196 189 193 195 193 193 190 191 193 ...
+##  $ accel_forearm_y     : int  203 204 206 203 205 205 204 205 203 205 ...
+##  $ accel_forearm_z     : int  -215 -213 -214 -215 -215 -213 -214 -215 -215 -215 ...
+##  $ magnet_forearm_x    : int  -17 -18 -17 -9 -18 -9 -16 -22 -11 -15 ...
+##  $ magnet_forearm_y    : num  654 658 655 660 659 660 653 656 657 655 ...
+##  $ magnet_forearm_z    : num  476 469 473 478 470 474 476 473 478 472 ...
 ##  $ classe              : Factor w/ 5 levels "A","B","C","D",..: 1 1 1 1 1 1 1 1 1 1 ...
 ```
 
@@ -299,90 +299,90 @@ head(training)
 ```
 
 ```
-##    roll_belt pitch_belt yaw_belt total_accel_belt gyros_belt_x
-## 1       1.41       8.07    -94.4                3         0.00
-## 3       1.42       8.07    -94.4                3         0.00
-## 5       1.48       8.07    -94.4                3         0.02
-## 7       1.42       8.09    -94.4                3         0.02
-## 9       1.43       8.16    -94.4                3         0.02
-## 10      1.45       8.17    -94.4                3         0.03
-##    gyros_belt_y gyros_belt_z accel_belt_x accel_belt_y accel_belt_z
-## 1          0.00        -0.02          -21            4           22
-## 3          0.00        -0.02          -20            5           23
-## 5          0.02        -0.02          -21            2           24
-## 7          0.00        -0.02          -22            3           21
-## 9          0.00        -0.02          -20            2           24
-## 10         0.00         0.00          -21            4           22
-##    magnet_belt_x magnet_belt_y magnet_belt_z roll_arm pitch_arm yaw_arm
-## 1             -3           599          -313     -128      22.5    -161
-## 3             -2           600          -305     -128      22.5    -161
-## 5             -6           600          -302     -128      22.1    -161
-## 7             -4           599          -311     -128      21.9    -161
-## 9              1           602          -312     -128      21.7    -161
-## 10            -3           609          -308     -128      21.6    -161
-##    total_accel_arm gyros_arm_x gyros_arm_y gyros_arm_z accel_arm_x
-## 1               34        0.00        0.00       -0.02        -288
-## 3               34        0.02       -0.02       -0.02        -289
-## 5               34        0.00       -0.03        0.00        -289
-## 7               34        0.00       -0.03        0.00        -289
-## 9               34        0.02       -0.03       -0.02        -288
-## 10              34        0.02       -0.03       -0.02        -288
-##    accel_arm_y accel_arm_z magnet_arm_x magnet_arm_y magnet_arm_z
-## 1          109        -123         -368          337          516
-## 3          110        -126         -368          344          513
-## 5          111        -123         -374          337          506
-## 7          111        -125         -373          336          509
-## 9          109        -122         -369          341          518
-## 10         110        -124         -376          334          516
-##    roll_dumbbell pitch_dumbbell yaw_dumbbell total_accel_dumbbell
-## 1       13.05217      -70.49400    -84.87394                   37
-## 3       12.85075      -70.27812    -85.14078                   37
-## 5       13.37872      -70.42856    -84.85306                   37
-## 7       13.12695      -70.24757    -85.09961                   37
-## 9       13.15463      -70.42520    -84.91563                   37
-## 10      13.33034      -70.85059    -84.44602                   37
-##    gyros_dumbbell_x gyros_dumbbell_y gyros_dumbbell_z accel_dumbbell_x
-## 1                 0            -0.02                0             -234
-## 3                 0            -0.02                0             -232
-## 5                 0            -0.02                0             -233
-## 7                 0            -0.02                0             -232
-## 9                 0            -0.02                0             -232
-## 10                0            -0.02                0             -235
-##    accel_dumbbell_y accel_dumbbell_z magnet_dumbbell_x magnet_dumbbell_y
-## 1                47             -271              -559               293
-## 3                46             -270              -561               298
-## 5                48             -270              -554               292
-## 7                47             -270              -551               295
-## 9                47             -269              -549               292
-## 10               48             -270              -558               291
-##    magnet_dumbbell_z roll_forearm pitch_forearm yaw_forearm
-## 1                -65         28.4         -63.9        -153
-## 3                -63         28.3         -63.9        -152
-## 5                -68         28.0         -63.9        -152
-## 7                -70         27.9         -63.9        -152
-## 9                -65         27.7         -63.8        -152
-## 10               -69         27.7         -63.8        -152
-##    total_accel_forearm gyros_forearm_x gyros_forearm_y gyros_forearm_z
-## 1                   36            0.03            0.00           -0.02
-## 3                   36            0.03           -0.02            0.00
-## 5                   36            0.02            0.00           -0.02
-## 7                   36            0.02            0.00           -0.02
-## 9                   36            0.03            0.00           -0.02
-## 10                  36            0.02            0.00           -0.02
-##    accel_forearm_x accel_forearm_y accel_forearm_z magnet_forearm_x
-## 1              192             203            -215              -17
-## 3              196             204            -213              -18
-## 5              189             206            -214              -17
-## 7              195             205            -215              -18
-## 9              193             204            -214              -16
-## 10             190             205            -215              -22
-##    magnet_forearm_y magnet_forearm_z classe
-## 1               654              476      A
-## 3               658              469      A
-## 5               655              473      A
-## 7               659              470      A
-## 9               653              476      A
-## 10              656              473      A
+##   roll_belt pitch_belt yaw_belt total_accel_belt gyros_belt_x gyros_belt_y
+## 1      1.41       8.07    -94.4                3         0.00         0.00
+## 3      1.42       8.07    -94.4                3         0.00         0.00
+## 5      1.48       8.07    -94.4                3         0.02         0.02
+## 6      1.45       8.06    -94.4                3         0.02         0.00
+## 7      1.42       8.09    -94.4                3         0.02         0.00
+## 8      1.42       8.13    -94.4                3         0.02         0.00
+##   gyros_belt_z accel_belt_x accel_belt_y accel_belt_z magnet_belt_x
+## 1        -0.02          -21            4           22            -3
+## 3        -0.02          -20            5           23            -2
+## 5        -0.02          -21            2           24            -6
+## 6        -0.02          -21            4           21             0
+## 7        -0.02          -22            3           21            -4
+## 8        -0.02          -22            4           21            -2
+##   magnet_belt_y magnet_belt_z roll_arm pitch_arm yaw_arm total_accel_arm
+## 1           599          -313     -128      22.5    -161              34
+## 3           600          -305     -128      22.5    -161              34
+## 5           600          -302     -128      22.1    -161              34
+## 6           603          -312     -128      22.0    -161              34
+## 7           599          -311     -128      21.9    -161              34
+## 8           603          -313     -128      21.8    -161              34
+##   gyros_arm_x gyros_arm_y gyros_arm_z accel_arm_x accel_arm_y accel_arm_z
+## 1        0.00        0.00       -0.02        -288         109        -123
+## 3        0.02       -0.02       -0.02        -289         110        -126
+## 5        0.00       -0.03        0.00        -289         111        -123
+## 6        0.02       -0.03        0.00        -289         111        -122
+## 7        0.00       -0.03        0.00        -289         111        -125
+## 8        0.02       -0.02        0.00        -289         111        -124
+##   magnet_arm_x magnet_arm_y magnet_arm_z roll_dumbbell pitch_dumbbell
+## 1         -368          337          516      13.05217      -70.49400
+## 3         -368          344          513      12.85075      -70.27812
+## 5         -374          337          506      13.37872      -70.42856
+## 6         -369          342          513      13.38246      -70.81759
+## 7         -373          336          509      13.12695      -70.24757
+## 8         -372          338          510      12.75083      -70.34768
+##   yaw_dumbbell total_accel_dumbbell gyros_dumbbell_x gyros_dumbbell_y
+## 1    -84.87394                   37                0            -0.02
+## 3    -85.14078                   37                0            -0.02
+## 5    -84.85306                   37                0            -0.02
+## 6    -84.46500                   37                0            -0.02
+## 7    -85.09961                   37                0            -0.02
+## 8    -85.09708                   37                0            -0.02
+##   gyros_dumbbell_z accel_dumbbell_x accel_dumbbell_y accel_dumbbell_z
+## 1                0             -234               47             -271
+## 3                0             -232               46             -270
+## 5                0             -233               48             -270
+## 6                0             -234               48             -269
+## 7                0             -232               47             -270
+## 8                0             -234               46             -272
+##   magnet_dumbbell_x magnet_dumbbell_y magnet_dumbbell_z roll_forearm
+## 1              -559               293               -65         28.4
+## 3              -561               298               -63         28.3
+## 5              -554               292               -68         28.0
+## 6              -558               294               -66         27.9
+## 7              -551               295               -70         27.9
+## 8              -555               300               -74         27.8
+##   pitch_forearm yaw_forearm total_accel_forearm gyros_forearm_x
+## 1         -63.9        -153                  36            0.03
+## 3         -63.9        -152                  36            0.03
+## 5         -63.9        -152                  36            0.02
+## 6         -63.9        -152                  36            0.02
+## 7         -63.9        -152                  36            0.02
+## 8         -63.8        -152                  36            0.02
+##   gyros_forearm_y gyros_forearm_z accel_forearm_x accel_forearm_y
+## 1            0.00           -0.02             192             203
+## 3           -0.02            0.00             196             204
+## 5            0.00           -0.02             189             206
+## 6           -0.02           -0.03             193             203
+## 7            0.00           -0.02             195             205
+## 8           -0.02            0.00             193             205
+##   accel_forearm_z magnet_forearm_x magnet_forearm_y magnet_forearm_z
+## 1            -215              -17              654              476
+## 3            -213              -18              658              469
+## 5            -214              -17              655              473
+## 6            -215               -9              660              478
+## 7            -215              -18              659              470
+## 8            -213               -9              660              474
+##   classe
+## 1      A
+## 3      A
+## 5      A
+## 6      A
+## 7      A
+## 8      A
 ```
 
 ```r
@@ -391,103 +391,103 @@ summary(training)
 
 ```
 ##    roll_belt        pitch_belt          yaw_belt      total_accel_belt
-##  Min.   :-28.90   Min.   :-54.9000   Min.   :-180.0   Min.   : 0.00   
-##  1st Qu.:  1.09   1st Qu.:  1.6600   1st Qu.: -88.3   1st Qu.: 3.00   
-##  Median :113.00   Median :  5.2600   Median : -12.8   Median :17.00   
-##  Mean   : 64.45   Mean   :  0.2506   Mean   : -11.0   Mean   :11.33   
-##  3rd Qu.:123.00   3rd Qu.: 15.0000   3rd Qu.:  13.1   3rd Qu.:18.00   
-##  Max.   :162.00   Max.   : 60.3000   Max.   : 179.0   Max.   :29.00   
+##  Min.   :-28.90   Min.   :-54.9000   Min.   :-180.0   Min.   : 0.0    
+##  1st Qu.:  1.10   1st Qu.:  1.7200   1st Qu.: -88.3   1st Qu.: 3.0    
+##  Median :113.00   Median :  5.2700   Median : -13.2   Median :17.0    
+##  Mean   : 64.34   Mean   :  0.2839   Mean   : -11.2   Mean   :11.3    
+##  3rd Qu.:123.00   3rd Qu.: 14.9000   3rd Qu.:  12.9   3rd Qu.:18.0    
+##  Max.   :162.00   Max.   : 60.3000   Max.   : 179.0   Max.   :29.0    
 ##   gyros_belt_x        gyros_belt_y       gyros_belt_z    
-##  Min.   :-1.040000   Min.   :-0.64000   Min.   :-1.4600  
+##  Min.   :-1.040000   Min.   :-0.53000   Min.   :-1.3500  
 ##  1st Qu.:-0.030000   1st Qu.: 0.00000   1st Qu.:-0.2000  
 ##  Median : 0.030000   Median : 0.02000   Median :-0.1000  
-##  Mean   :-0.006036   Mean   : 0.03902   Mean   :-0.1323  
+##  Mean   :-0.004687   Mean   : 0.03911   Mean   :-0.1321  
 ##  3rd Qu.: 0.110000   3rd Qu.: 0.11000   3rd Qu.:-0.0200  
-##  Max.   : 2.200000   Max.   : 0.64000   Max.   : 1.6200  
-##   accel_belt_x       accel_belt_y     accel_belt_z     magnet_belt_x   
-##  Min.   :-120.000   Min.   :-69.00   Min.   :-275.00   Min.   :-49.00  
-##  1st Qu.: -21.000   1st Qu.:  3.00   1st Qu.:-162.00   1st Qu.:  9.00  
-##  Median : -15.000   Median : 35.00   Median :-153.00   Median : 35.00  
-##  Mean   :  -5.534   Mean   : 30.15   Mean   : -72.72   Mean   : 55.79  
-##  3rd Qu.:  -5.000   3rd Qu.: 61.00   3rd Qu.:  28.00   3rd Qu.: 60.00  
-##  Max.   :  85.000   Max.   :164.00   Max.   : 105.00   Max.   :481.00  
-##  magnet_belt_y   magnet_belt_z       roll_arm         pitch_arm     
-##  Min.   :360.0   Min.   :-621.0   Min.   :-180.00   Min.   :-88.80  
-##  1st Qu.:581.0   1st Qu.:-375.0   1st Qu.: -31.50   1st Qu.:-25.70  
-##  Median :601.0   Median :-320.0   Median :   0.00   Median :  0.00  
-##  Mean   :593.5   Mean   :-345.8   Mean   :  17.58   Mean   : -4.38  
-##  3rd Qu.:610.0   3rd Qu.:-306.0   3rd Qu.:  77.10   3rd Qu.: 11.50  
-##  Max.   :673.0   Max.   : 293.0   Max.   : 180.00   Max.   : 87.10  
-##     yaw_arm          total_accel_arm  gyros_arm_x        gyros_arm_y     
-##  Min.   :-180.0000   Min.   : 1.00   Min.   :-6.37000   Min.   :-3.4400  
-##  1st Qu.: -43.3000   1st Qu.:17.00   1st Qu.:-1.36000   1st Qu.:-0.7900  
-##  Median :   0.0000   Median :27.00   Median : 0.06000   Median :-0.2200  
-##  Mean   :  -0.5888   Mean   :25.46   Mean   : 0.02991   Mean   :-0.2503  
-##  3rd Qu.:  45.9000   3rd Qu.:33.00   3rd Qu.: 1.54000   3rd Qu.: 0.1600  
-##  Max.   : 180.0000   Max.   :66.00   Max.   : 4.87000   Max.   : 2.8400  
+##  Max.   : 2.220000   Max.   : 0.63000   Max.   : 1.6100  
+##   accel_belt_x       accel_belt_y    accel_belt_z    magnet_belt_x   
+##  Min.   :-120.000   Min.   :-69.0   Min.   :-275.0   Min.   :-52.00  
+##  1st Qu.: -21.000   1st Qu.:  3.0   1st Qu.:-162.0   1st Qu.:  9.00  
+##  Median : -15.000   Median : 33.0   Median :-152.0   Median : 35.00  
+##  Mean   :  -5.608   Mean   : 30.1   Mean   : -72.5   Mean   : 55.81  
+##  3rd Qu.:  -5.000   3rd Qu.: 61.0   3rd Qu.:  27.0   3rd Qu.: 59.00  
+##  Max.   :  85.000   Max.   :164.0   Max.   : 105.0   Max.   :481.00  
+##  magnet_belt_y   magnet_belt_z       roll_arm         pitch_arm      
+##  Min.   :354.0   Min.   :-623.0   Min.   :-180.00   Min.   :-88.800  
+##  1st Qu.:581.0   1st Qu.:-375.0   1st Qu.: -31.90   1st Qu.:-26.000  
+##  Median :601.0   Median :-320.0   Median :   0.00   Median :  0.000  
+##  Mean   :593.5   Mean   :-345.5   Mean   :  18.06   Mean   : -4.729  
+##  3rd Qu.:610.0   3rd Qu.:-306.0   3rd Qu.:  77.60   3rd Qu.: 11.200  
+##  Max.   :673.0   Max.   : 293.0   Max.   : 179.00   Max.   : 88.500  
+##     yaw_arm           total_accel_arm  gyros_arm_x        gyros_arm_y     
+##  Min.   :-180.00000   Min.   : 1.00   Min.   :-6.37000   Min.   :-3.4400  
+##  1st Qu.: -42.70000   1st Qu.:17.00   1st Qu.:-1.33000   1st Qu.:-0.8000  
+##  Median :   0.00000   Median :27.00   Median : 0.08000   Median :-0.2400  
+##  Mean   :  -0.02531   Mean   :25.52   Mean   : 0.05161   Mean   :-0.2594  
+##  3rd Qu.:  47.00000   3rd Qu.:33.00   3rd Qu.: 1.59000   3rd Qu.: 0.1400  
+##  Max.   : 180.00000   Max.   :65.00   Max.   : 4.87000   Max.   : 2.8400  
 ##   gyros_arm_z       accel_arm_x       accel_arm_y       accel_arm_z     
-##  Min.   :-2.2800   Min.   :-404.00   Min.   :-318.00   Min.   :-636.00  
-##  1st Qu.:-0.0800   1st Qu.:-241.00   1st Qu.: -54.00   1st Qu.:-141.00  
-##  Median : 0.2300   Median : -44.00   Median :  14.00   Median : -46.00  
-##  Mean   : 0.2655   Mean   : -60.66   Mean   :  32.87   Mean   : -70.65  
-##  3rd Qu.: 0.7200   3rd Qu.:  82.00   3rd Qu.: 139.00   3rd Qu.:  24.00  
-##  Max.   : 2.9900   Max.   : 437.00   Max.   : 308.00   Max.   : 271.00  
-##   magnet_arm_x     magnet_arm_y     magnet_arm_z  roll_dumbbell    
-##  Min.   :-584.0   Min.   :-392.0   Min.   :-597   Min.   :-153.71  
-##  1st Qu.:-300.0   1st Qu.:  -6.0   1st Qu.: 137   1st Qu.: -17.50  
-##  Median : 281.0   Median : 203.0   Median : 445   Median :  48.32  
-##  Mean   : 189.2   Mean   : 157.5   Mean   : 308   Mean   :  24.25  
-##  3rd Qu.: 636.0   3rd Qu.: 324.0   3rd Qu.: 546   3rd Qu.:  67.93  
-##  Max.   : 782.0   Max.   : 583.0   Max.   : 687   Max.   : 153.55  
+##  Min.   :-2.3300   Min.   :-404.00   Min.   :-318.00   Min.   :-630.00  
+##  1st Qu.:-0.0700   1st Qu.:-241.00   1st Qu.: -54.00   1st Qu.:-142.00  
+##  Median : 0.2500   Median : -44.00   Median :  15.00   Median : -48.00  
+##  Mean   : 0.2716   Mean   : -60.55   Mean   :  32.65   Mean   : -71.74  
+##  3rd Qu.: 0.7200   3rd Qu.:  84.00   3rd Qu.: 139.00   3rd Qu.:  23.00  
+##  Max.   : 2.9500   Max.   : 437.00   Max.   : 303.00   Max.   : 271.00  
+##   magnet_arm_x   magnet_arm_y     magnet_arm_z    roll_dumbbell    
+##  Min.   :-584   Min.   :-386.0   Min.   :-597.0   Min.   :-153.71  
+##  1st Qu.:-300   1st Qu.:  -9.0   1st Qu.: 133.0   1st Qu.: -17.97  
+##  Median : 288   Median : 202.0   Median : 444.0   Median :  47.95  
+##  Mean   : 191   Mean   : 156.8   Mean   : 305.6   Mean   :  23.98  
+##  3rd Qu.: 637   3rd Qu.: 323.0   3rd Qu.: 544.0   3rd Qu.:  67.46  
+##  Max.   : 782   Max.   : 583.0   Max.   : 690.0   Max.   : 153.55  
 ##  pitch_dumbbell     yaw_dumbbell      total_accel_dumbbell
-##  Min.   :-149.59   Min.   :-148.766   Min.   : 0.00       
-##  1st Qu.: -41.19   1st Qu.: -77.713   1st Qu.: 4.00       
-##  Median : -20.90   Median :  -4.072   Median :11.00       
-##  Mean   : -10.92   Mean   :   1.718   Mean   :13.77       
-##  3rd Qu.:  17.14   3rd Qu.:  79.984   3rd Qu.:20.00       
-##  Max.   : 149.40   Max.   : 154.754   Max.   :58.00       
+##  Min.   :-148.50   Min.   :-148.766   Min.   : 0.00       
+##  1st Qu.: -40.60   1st Qu.: -77.658   1st Qu.: 4.00       
+##  Median : -20.67   Median :  -3.191   Median :10.00       
+##  Mean   : -10.56   Mean   :   1.895   Mean   :13.68       
+##  3rd Qu.:  17.80   3rd Qu.:  80.894   3rd Qu.:19.00       
+##  Max.   : 149.40   Max.   : 154.952   Max.   :58.00       
 ##  gyros_dumbbell_x    gyros_dumbbell_y   gyros_dumbbell_z  
 ##  Min.   :-204.0000   Min.   :-2.10000   Min.   : -2.3800  
 ##  1st Qu.:  -0.0300   1st Qu.:-0.14000   1st Qu.: -0.3100  
-##  Median :   0.1400   Median : 0.03000   Median : -0.1300  
-##  Mean   :   0.1584   Mean   : 0.04825   Mean   : -0.1231  
+##  Median :   0.1300   Median : 0.05000   Median : -0.1300  
+##  Mean   :   0.1546   Mean   : 0.04623   Mean   : -0.1201  
 ##  3rd Qu.:   0.3500   3rd Qu.: 0.21000   3rd Qu.:  0.0300  
-##  Max.   :   2.1700   Max.   :52.00000   Max.   :317.0000  
+##  Max.   :   2.2200   Max.   :52.00000   Max.   :317.0000  
 ##  accel_dumbbell_x  accel_dumbbell_y  accel_dumbbell_z  magnet_dumbbell_x
-##  Min.   :-419.00   Min.   :-189.00   Min.   :-319.00   Min.   :-639.0   
-##  1st Qu.: -51.00   1st Qu.:  -8.00   1st Qu.:-142.00   1st Qu.:-535.0   
-##  Median :  -9.00   Median :  43.00   Median :  -1.00   Median :-480.0   
-##  Mean   : -28.92   Mean   :  53.09   Mean   : -38.71   Mean   :-327.1   
-##  3rd Qu.:  11.00   3rd Qu.: 112.00   3rd Qu.:  38.00   3rd Qu.:-303.0   
-##  Max.   : 235.00   Max.   : 315.00   Max.   : 318.00   Max.   : 592.0   
+##  Min.   :-419.00   Min.   :-182.00   Min.   :-284.00   Min.   :-643.0   
+##  1st Qu.: -50.00   1st Qu.:  -8.00   1st Qu.:-141.00   1st Qu.:-535.0   
+##  Median :  -8.00   Median :  41.00   Median :  -1.00   Median :-479.0   
+##  Mean   : -28.27   Mean   :  52.38   Mean   : -37.75   Mean   :-328.6   
+##  3rd Qu.:  11.00   3rd Qu.: 110.00   3rd Qu.:  39.00   3rd Qu.:-303.0   
+##  Max.   : 235.00   Max.   : 315.00   Max.   : 318.00   Max.   : 583.0   
 ##  magnet_dumbbell_y magnet_dumbbell_z  roll_forearm     pitch_forearm   
 ##  Min.   :-3600.0   Min.   :-262.00   Min.   :-180.00   Min.   :-72.50  
-##  1st Qu.:  231.0   1st Qu.: -45.00   1st Qu.:  -0.46   1st Qu.:  0.00  
-##  Median :  311.0   Median :  14.00   Median :  22.10   Median :  9.37  
-##  Mean   :  219.6   Mean   :  46.24   Mean   :  34.16   Mean   : 10.76  
-##  3rd Qu.:  389.0   3rd Qu.:  96.00   3rd Qu.: 140.00   3rd Qu.: 28.40  
-##  Max.   :  633.0   Max.   : 451.00   Max.   : 180.00   Max.   : 89.80  
+##  1st Qu.:  230.0   1st Qu.: -46.00   1st Qu.:  -1.93   1st Qu.:  0.00  
+##  Median :  310.0   Median :  13.00   Median :  20.80   Median :  9.31  
+##  Mean   :  221.2   Mean   :  46.59   Mean   :  33.24   Mean   : 10.75  
+##  3rd Qu.:  390.0   3rd Qu.:  96.00   3rd Qu.: 140.00   3rd Qu.: 28.60  
+##  Max.   :  632.0   Max.   : 451.00   Max.   : 180.00   Max.   : 89.80  
 ##   yaw_forearm      total_accel_forearm gyros_forearm_x   
-##  Min.   :-180.00   Min.   :  0.0       Min.   :-22.0000  
-##  1st Qu.: -67.80   1st Qu.: 29.0       1st Qu.: -0.2200  
-##  Median :   0.00   Median : 36.0       Median :  0.0500  
-##  Mean   :  19.71   Mean   : 34.8       Mean   :  0.1588  
-##  3rd Qu.: 110.00   3rd Qu.: 41.0       3rd Qu.:  0.5600  
-##  Max.   : 180.00   Max.   :108.0       Max.   :  3.9700  
-##  gyros_forearm_y     gyros_forearm_z    accel_forearm_x   accel_forearm_y
-##  Min.   : -7.02000   Min.   : -8.0900   Min.   :-498.00   Min.   :-585   
-##  1st Qu.: -1.48000   1st Qu.: -0.2000   1st Qu.:-178.00   1st Qu.:  60   
-##  Median :  0.02000   Median :  0.0800   Median : -57.00   Median : 202   
-##  Mean   :  0.05994   Mean   :  0.1488   Mean   : -61.74   Mean   : 166   
-##  3rd Qu.:  1.61000   3rd Qu.:  0.4800   3rd Qu.:  76.00   3rd Qu.: 314   
-##  Max.   :311.00000   Max.   :231.0000   Max.   : 477.00   Max.   : 923   
+##  Min.   :-180.00   Min.   :  0.00      Min.   :-22.0000  
+##  1st Qu.: -69.10   1st Qu.: 29.00      1st Qu.: -0.2200  
+##  Median :   0.00   Median : 36.00      Median :  0.0500  
+##  Mean   :  18.87   Mean   : 34.75      Mean   :  0.1523  
+##  3rd Qu.: 110.00   3rd Qu.: 41.00      3rd Qu.:  0.5600  
+##  Max.   : 180.00   Max.   :108.00      Max.   :  3.9700  
+##  gyros_forearm_y     gyros_forearm_z    accel_forearm_x   accel_forearm_y 
+##  Min.   : -7.02000   Min.   : -8.0900   Min.   :-498.00   Min.   :-595.0  
+##  1st Qu.: -1.46000   1st Qu.: -0.1800   1st Qu.:-179.00   1st Qu.:  53.0  
+##  Median :  0.03000   Median :  0.0800   Median : -57.00   Median : 201.0  
+##  Mean   :  0.09408   Mean   :  0.1587   Mean   : -62.36   Mean   : 163.5  
+##  3rd Qu.:  1.65000   3rd Qu.:  0.4900   3rd Qu.:  75.00   3rd Qu.: 313.0  
+##  Max.   :311.00000   Max.   :231.0000   Max.   : 477.00   Max.   : 923.0  
 ##  accel_forearm_z   magnet_forearm_x  magnet_forearm_y magnet_forearm_z
-##  Min.   :-410.00   Min.   :-1280.0   Min.   :-896.0   Min.   :-973.0  
-##  1st Qu.:-181.00   1st Qu.: -619.0   1st Qu.:  17.0   1st Qu.: 194.0  
-##  Median : -40.00   Median : -385.0   Median : 595.0   Median : 514.0  
-##  Mean   : -55.45   Mean   : -316.4   Mean   : 385.3   Mean   : 394.8  
-##  3rd Qu.:  26.00   3rd Qu.:  -81.0   3rd Qu.: 739.0   3rd Qu.: 654.0  
-##  Max.   : 291.00   Max.   :  666.0   Max.   :1480.0   Max.   :1090.0  
+##  Min.   :-446.00   Min.   :-1280.0   Min.   :-896.0   Min.   :-973.0  
+##  1st Qu.:-181.00   1st Qu.: -617.0   1st Qu.:   1.0   1st Qu.: 183.0  
+##  Median : -37.00   Median : -380.0   Median : 592.0   Median : 508.0  
+##  Mean   : -54.13   Mean   : -314.2   Mean   : 380.1   Mean   : 391.4  
+##  3rd Qu.:  26.00   3rd Qu.:  -75.0   3rd Qu.: 738.0   3rd Qu.: 653.0  
+##  Max.   : 291.00   Max.   :  663.0   Max.   :1480.0   Max.   :1090.0  
 ##  classe  
 ##  A:3906  
 ##  B:2658  
@@ -504,58 +504,58 @@ str(validation)
 
 ```
 ## 'data.frame':	5885 obs. of  53 variables:
-##  $ roll_belt           : num  1.41 1.48 1.45 1.42 1.42 1.55 1.57 1.52 1.52 1.53 ...
-##  $ pitch_belt          : num  8.07 8.05 8.06 8.13 8.2 8.08 8.09 8.16 8.17 8.17 ...
-##  $ yaw_belt            : num  -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 ...
+##  $ roll_belt           : num  1.41 1.48 1.45 1.6 1.54 1.52 1.43 1.34 1.33 1.31 ...
+##  $ pitch_belt          : num  8.07 8.05 8.18 8.1 8.11 8.16 8.17 8.05 7.76 7.69 ...
+##  $ yaw_belt            : num  -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.4 -94.3 -94.2 -94.2 ...
 ##  $ total_accel_belt    : int  3 3 3 3 3 3 3 3 3 3 ...
-##  $ gyros_belt_x        : num  0.02 0.02 0.02 0.02 0.02 0 0.02 0.03 0.03 0.02 ...
-##  $ gyros_belt_y        : num  0 0 0 0 0 0.02 0.02 0 0 0.02 ...
-##  $ gyros_belt_z        : num  -0.02 -0.03 -0.02 -0.02 0 0 -0.02 -0.02 -0.02 -0.02 ...
-##  $ accel_belt_x        : int  -22 -22 -21 -22 -22 -21 -21 -20 -21 -21 ...
-##  $ accel_belt_y        : int  4 3 4 4 4 5 3 4 4 4 ...
-##  $ accel_belt_z        : int  22 21 21 21 21 21 21 23 21 22 ...
-##  $ magnet_belt_x       : int  -7 -6 0 -2 -3 1 -2 -4 2 0 ...
-##  $ magnet_belt_y       : int  608 604 603 603 606 600 604 606 593 601 ...
-##  $ magnet_belt_z       : int  -311 -310 -312 -313 -309 -316 -313 -320 -308 -308 ...
-##  $ roll_arm            : num  -128 -128 -128 -128 -128 -129 -129 -129 -129 -129 ...
-##  $ pitch_arm           : num  22.5 22.1 22 21.8 21.4 21.2 20.8 20.7 20.7 20.7 ...
-##  $ yaw_arm             : num  -161 -161 -161 -161 -161 -161 -161 -161 -161 -161 ...
+##  $ gyros_belt_x        : num  0.02 0.02 0.03 0.02 0.03 0.03 0 0 -0.02 0.02 ...
+##  $ gyros_belt_y        : num  0 0 0 0 0 0 0 0.02 0.02 0 ...
+##  $ gyros_belt_z        : num  -0.02 -0.03 -0.02 -0.02 -0.02 -0.02 -0.03 -0.03 0 -0.03 ...
+##  $ accel_belt_x        : int  -22 -22 -21 -20 -22 -20 -22 -22 -19 -19 ...
+##  $ accel_belt_y        : int  4 3 2 1 3 4 4 3 4 3 ...
+##  $ accel_belt_z        : int  22 21 23 20 22 23 19 20 21 21 ...
+##  $ magnet_belt_x       : int  -7 -6 -5 -10 3 -4 4 2 -3 -2 ...
+##  $ magnet_belt_y       : int  608 604 596 607 597 606 602 602 601 597 ...
+##  $ magnet_belt_z       : int  -311 -310 -317 -304 -320 -320 -316 -317 -318 -317 ...
+##  $ roll_arm            : num  -128 -128 -128 -129 -129 -129 -129 -130 -130 -130 ...
+##  $ pitch_arm           : num  22.5 22.1 21.5 20.9 20.7 20.7 20.5 19.9 19.7 19.6 ...
+##  $ yaw_arm             : num  -161 -161 -161 -161 -161 -161 -161 -162 -162 -162 ...
 ##  $ total_accel_arm     : int  34 34 34 34 34 34 34 34 34 34 ...
-##  $ gyros_arm_x         : num  0.02 0.02 0.02 0.02 0.02 0.02 0.03 -0.02 0 0 ...
-##  $ gyros_arm_y         : num  -0.02 -0.03 -0.03 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 0 ...
-##  $ gyros_arm_z         : num  -0.02 0.02 0 0 -0.02 -0.03 -0.02 0 0 0 ...
-##  $ accel_arm_x         : int  -290 -289 -289 -289 -287 -288 -289 -290 -289 -290 ...
-##  $ accel_arm_y         : int  110 111 111 111 111 108 111 109 109 109 ...
-##  $ accel_arm_z         : int  -125 -123 -122 -124 -124 -124 -123 -125 -125 -126 ...
-##  $ magnet_arm_x        : int  -369 -372 -369 -372 -372 -373 -372 -367 -366 -371 ...
-##  $ magnet_arm_y        : int  337 344 342 338 338 336 338 337 349 331 ...
-##  $ magnet_arm_z        : int  513 512 513 510 509 510 510 514 523 512 ...
-##  $ roll_dumbbell       : num  13.1 13.4 13.4 12.8 13.4 ...
-##  $ pitch_dumbbell      : num  -70.6 -70.4 -70.8 -70.3 -70.8 ...
-##  $ yaw_dumbbell        : num  -84.7 -84.9 -84.5 -85.1 -84.5 ...
-##  $ total_accel_dumbbell: int  37 37 37 37 37 36 37 37 37 37 ...
-##  $ gyros_dumbbell_x    : num  0 0 0 0 0 0.02 0 0 0 0 ...
-##  $ gyros_dumbbell_y    : num  -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 ...
-##  $ gyros_dumbbell_z    : num  0 -0.02 0 0 -0.02 -0.02 0 -0.02 -0.02 -0.02 ...
-##  $ accel_dumbbell_x    : int  -233 -232 -234 -234 -234 -231 -233 -234 -234 -233 ...
-##  $ accel_dumbbell_y    : int  47 48 48 46 48 47 48 47 47 45 ...
-##  $ accel_dumbbell_z    : int  -269 -269 -269 -272 -269 -268 -270 -271 -270 -271 ...
-##  $ magnet_dumbbell_x   : int  -555 -552 -558 -555 -552 -557 -554 -552 -562 -558 ...
-##  $ magnet_dumbbell_y   : int  296 303 294 300 302 292 301 291 298 294 ...
-##  $ magnet_dumbbell_z   : num  -64 -60 -66 -74 -69 -62 -65 -60 -64 -64 ...
-##  $ roll_forearm        : num  28.3 28.1 27.9 27.8 27.2 27 27 26.8 26.8 26.8 ...
-##  $ pitch_forearm       : num  -63.9 -63.9 -63.9 -63.8 -63.9 -64 -63.9 -63.6 -63.6 -63.6 ...
-##  $ yaw_forearm         : num  -153 -152 -152 -152 -151 -151 -151 -151 -151 -151 ...
+##  $ gyros_arm_x         : num  0.02 0.02 0.02 0.03 -0.02 -0.02 0.03 0.02 0 -0.02 ...
+##  $ gyros_arm_y         : num  -0.02 -0.03 -0.03 -0.02 -0.02 -0.02 -0.02 -0.03 -0.03 -0.02 ...
+##  $ gyros_arm_z         : num  -0.02 0.02 0 -0.02 0 0 0 -0.02 -0.02 -0.03 ...
+##  $ accel_arm_x         : int  -290 -289 -290 -288 -289 -290 -290 -289 -289 -288 ...
+##  $ accel_arm_y         : int  110 111 110 111 111 109 110 110 111 108 ...
+##  $ accel_arm_z         : int  -125 -123 -123 -124 -126 -125 -126 -124 -124 -124 ...
+##  $ magnet_arm_x        : int  -369 -372 -366 -375 -371 -367 -375 -372 -370 -371 ...
+##  $ magnet_arm_y        : int  337 344 339 337 338 337 339 339 332 337 ...
+##  $ magnet_arm_z        : int  513 512 509 513 505 514 508 507 506 508 ...
+##  $ roll_dumbbell       : num  13.1 13.4 13.1 13.4 12.8 ...
+##  $ pitch_dumbbell      : num  -70.6 -70.4 -70.6 -70.8 -70.5 ...
+##  $ yaw_dumbbell        : num  -84.7 -84.9 -84.7 -84.5 -84.9 ...
+##  $ total_accel_dumbbell: int  37 37 37 37 37 37 37 37 37 37 ...
+##  $ gyros_dumbbell_x    : num  0 0 0 0 0 0 0 -0.02 0 0 ...
+##  $ gyros_dumbbell_y    : num  -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 0 -0.02 0 ...
+##  $ gyros_dumbbell_z    : num  0 -0.02 0 0 0 -0.02 -0.02 0 0 0 ...
+##  $ accel_dumbbell_x    : int  -233 -232 -233 -234 -233 -234 -234 -232 -233 -235 ...
+##  $ accel_dumbbell_y    : int  47 48 47 48 46 47 48 49 47 47 ...
+##  $ accel_dumbbell_z    : int  -269 -269 -269 -269 -270 -271 -272 -269 -269 -267 ...
+##  $ magnet_dumbbell_x   : int  -555 -552 -564 -554 -556 -552 -556 -554 -558 -554 ...
+##  $ magnet_dumbbell_y   : int  296 303 299 299 297 291 298 297 290 295 ...
+##  $ magnet_dumbbell_z   : num  -64 -60 -64 -72 -68 -60 -62 -62 -65 -61 ...
+##  $ roll_forearm        : num  28.3 28.1 27.6 26.9 27 26.8 26.7 26.4 26 25.5 ...
+##  $ pitch_forearm       : num  -63.9 -63.9 -63.8 -63.9 -63.6 -63.6 -63.7 -63.9 -63.9 -63.8 ...
+##  $ yaw_forearm         : num  -153 -152 -152 -151 -151 -151 -151 -150 -150 -149 ...
 ##  $ total_accel_forearm : int  36 36 36 36 36 36 36 36 36 36 ...
-##  $ gyros_forearm_x     : num  0.02 0.02 0.02 0.02 0 0.02 0.02 0.02 0.02 0.02 ...
-##  $ gyros_forearm_y     : num  0 -0.02 -0.02 -0.02 0 0 -0.03 -0.02 -0.02 0 ...
-##  $ gyros_forearm_z     : num  -0.02 0 -0.03 0 -0.03 -0.02 -0.02 -0.03 -0.03 -0.02 ...
-##  $ accel_forearm_x     : int  192 189 193 193 193 192 191 195 189 192 ...
-##  $ accel_forearm_y     : int  203 206 203 205 205 206 206 205 204 203 ...
-##  $ accel_forearm_z     : int  -216 -214 -215 -213 -215 -216 -213 -217 -217 -217 ...
-##  $ magnet_forearm_x    : int  -18 -16 -9 -9 -15 -16 -17 -12 -4 -13 ...
-##  $ magnet_forearm_y    : num  661 658 660 660 655 653 654 657 661 660 ...
-##  $ magnet_forearm_z    : num  473 469 478 474 472 472 478 469 479 469 ...
+##  $ gyros_forearm_x     : num  0.02 0.02 0.02 0.03 0.03 0.02 0 0.02 0.03 0.02 ...
+##  $ gyros_forearm_y     : num  0 -0.02 -0.02 -0.03 0 -0.02 -0.02 -0.02 0 0 ...
+##  $ gyros_forearm_z     : num  -0.02 0 -0.02 -0.02 0 -0.03 -0.02 -0.02 0 -0.07 ...
+##  $ accel_forearm_x     : int  192 189 193 194 192 195 196 192 191 195 ...
+##  $ accel_forearm_y     : int  203 206 205 208 204 205 207 207 202 207 ...
+##  $ accel_forearm_z     : int  -216 -214 -214 -214 -214 -217 -216 -216 -214 -216 ...
+##  $ magnet_forearm_x    : int  -18 -16 -17 -11 -14 -12 -15 -13 -10 -15 ...
+##  $ magnet_forearm_y    : num  661 658 657 654 657 657 650 659 655 657 ...
+##  $ magnet_forearm_z    : num  473 469 465 469 467 469 473 465 469 460 ...
 ##  $ classe              : Factor w/ 5 levels "A","B","C","D",..: 1 1 1 1 1 1 1 1 1 1 ...
 ```
 
@@ -567,87 +567,87 @@ head(validation)
 ##    roll_belt pitch_belt yaw_belt total_accel_belt gyros_belt_x
 ## 2       1.41       8.07    -94.4                3         0.02
 ## 4       1.48       8.05    -94.4                3         0.02
-## 6       1.45       8.06    -94.4                3         0.02
-## 8       1.42       8.13    -94.4                3         0.02
-## 13      1.42       8.20    -94.4                3         0.02
-## 18      1.55       8.08    -94.4                3         0.00
+## 11      1.45       8.18    -94.4                3         0.03
+## 21      1.60       8.10    -94.4                3         0.02
+## 27      1.54       8.11    -94.4                3         0.03
+## 29      1.52       8.16    -94.4                3         0.03
 ##    gyros_belt_y gyros_belt_z accel_belt_x accel_belt_y accel_belt_z
-## 2          0.00        -0.02          -22            4           22
-## 4          0.00        -0.03          -22            3           21
-## 6          0.00        -0.02          -21            4           21
-## 8          0.00        -0.02          -22            4           21
-## 13         0.00         0.00          -22            4           21
-## 18         0.02         0.00          -21            5           21
+## 2             0        -0.02          -22            4           22
+## 4             0        -0.03          -22            3           21
+## 11            0        -0.02          -21            2           23
+## 21            0        -0.02          -20            1           20
+## 27            0        -0.02          -22            3           22
+## 29            0        -0.02          -20            4           23
 ##    magnet_belt_x magnet_belt_y magnet_belt_z roll_arm pitch_arm yaw_arm
 ## 2             -7           608          -311     -128      22.5    -161
 ## 4             -6           604          -310     -128      22.1    -161
-## 6              0           603          -312     -128      22.0    -161
-## 8             -2           603          -313     -128      21.8    -161
-## 13            -3           606          -309     -128      21.4    -161
-## 18             1           600          -316     -129      21.2    -161
+## 11            -5           596          -317     -128      21.5    -161
+## 21           -10           607          -304     -129      20.9    -161
+## 27             3           597          -320     -129      20.7    -161
+## 29            -4           606          -320     -129      20.7    -161
 ##    total_accel_arm gyros_arm_x gyros_arm_y gyros_arm_z accel_arm_x
 ## 2               34        0.02       -0.02       -0.02        -290
 ## 4               34        0.02       -0.03        0.02        -289
-## 6               34        0.02       -0.03        0.00        -289
-## 8               34        0.02       -0.02        0.00        -289
-## 13              34        0.02       -0.02       -0.02        -287
-## 18              34        0.02       -0.02       -0.03        -288
+## 11              34        0.02       -0.03        0.00        -290
+## 21              34        0.03       -0.02       -0.02        -288
+## 27              34       -0.02       -0.02        0.00        -289
+## 29              34       -0.02       -0.02        0.00        -290
 ##    accel_arm_y accel_arm_z magnet_arm_x magnet_arm_y magnet_arm_z
 ## 2          110        -125         -369          337          513
 ## 4          111        -123         -372          344          512
-## 6          111        -122         -369          342          513
-## 8          111        -124         -372          338          510
-## 13         111        -124         -372          338          509
-## 18         108        -124         -373          336          510
+## 11         110        -123         -366          339          509
+## 21         111        -124         -375          337          513
+## 27         111        -126         -371          338          505
+## 29         109        -125         -367          337          514
 ##    roll_dumbbell pitch_dumbbell yaw_dumbbell total_accel_dumbbell
 ## 2       13.13074      -70.63751    -84.71065                   37
 ## 4       13.43120      -70.39379    -84.87363                   37
-## 6       13.38246      -70.81759    -84.46500                   37
-## 8       12.75083      -70.34768    -85.09708                   37
-## 13      13.38246      -70.81759    -84.46500                   37
-## 18      13.20646      -70.39037    -84.93667                   36
+## 11      13.13074      -70.63751    -84.71065                   37
+## 21      13.38246      -70.81759    -84.46500                   37
+## 27      12.82749      -70.49032    -84.93557                   37
+## 29      13.05217      -70.49400    -84.87394                   37
 ##    gyros_dumbbell_x gyros_dumbbell_y gyros_dumbbell_z accel_dumbbell_x
-## 2              0.00            -0.02             0.00             -233
-## 4              0.00            -0.02            -0.02             -232
-## 6              0.00            -0.02             0.00             -234
-## 8              0.00            -0.02             0.00             -234
-## 13             0.00            -0.02            -0.02             -234
-## 18             0.02            -0.02            -0.02             -231
+## 2                 0            -0.02             0.00             -233
+## 4                 0            -0.02            -0.02             -232
+## 11                0            -0.02             0.00             -233
+## 21                0            -0.02             0.00             -234
+## 27                0            -0.02             0.00             -233
+## 29                0            -0.02            -0.02             -234
 ##    accel_dumbbell_y accel_dumbbell_z magnet_dumbbell_x magnet_dumbbell_y
 ## 2                47             -269              -555               296
 ## 4                48             -269              -552               303
-## 6                48             -269              -558               294
-## 8                46             -272              -555               300
-## 13               48             -269              -552               302
-## 18               47             -268              -557               292
+## 11               47             -269              -564               299
+## 21               48             -269              -554               299
+## 27               46             -270              -556               297
+## 29               47             -271              -552               291
 ##    magnet_dumbbell_z roll_forearm pitch_forearm yaw_forearm
 ## 2                -64         28.3         -63.9        -153
 ## 4                -60         28.1         -63.9        -152
-## 6                -66         27.9         -63.9        -152
-## 8                -74         27.8         -63.8        -152
-## 13               -69         27.2         -63.9        -151
-## 18               -62         27.0         -64.0        -151
+## 11               -64         27.6         -63.8        -152
+## 21               -72         26.9         -63.9        -151
+## 27               -68         27.0         -63.6        -151
+## 29               -60         26.8         -63.6        -151
 ##    total_accel_forearm gyros_forearm_x gyros_forearm_y gyros_forearm_z
 ## 2                   36            0.02            0.00           -0.02
 ## 4                   36            0.02           -0.02            0.00
-## 6                   36            0.02           -0.02           -0.03
-## 8                   36            0.02           -0.02            0.00
-## 13                  36            0.00            0.00           -0.03
-## 18                  36            0.02            0.00           -0.02
+## 11                  36            0.02           -0.02           -0.02
+## 21                  36            0.03           -0.03           -0.02
+## 27                  36            0.03            0.00            0.00
+## 29                  36            0.02           -0.02           -0.03
 ##    accel_forearm_x accel_forearm_y accel_forearm_z magnet_forearm_x
 ## 2              192             203            -216              -18
 ## 4              189             206            -214              -16
-## 6              193             203            -215               -9
-## 8              193             205            -213               -9
-## 13             193             205            -215              -15
-## 18             192             206            -216              -16
+## 11             193             205            -214              -17
+## 21             194             208            -214              -11
+## 27             192             204            -214              -14
+## 29             195             205            -217              -12
 ##    magnet_forearm_y magnet_forearm_z classe
 ## 2               661              473      A
 ## 4               658              469      A
-## 6               660              478      A
-## 8               660              474      A
-## 13              655              472      A
-## 18              653              472      A
+## 11              657              465      A
+## 21              654              469      A
+## 27              657              467      A
+## 29              657              469      A
 ```
 
 ```r
@@ -655,104 +655,104 @@ summary(validation)
 ```
 
 ```
-##    roll_belt       pitch_belt          yaw_belt       total_accel_belt
-##  Min.   :-28.8   Min.   :-55.8000   Min.   :-179.00   Min.   : 0.00   
-##  1st Qu.:  1.1   1st Qu.:  1.9600   1st Qu.: -88.30   1st Qu.: 3.00   
-##  Median :113.0   Median :  5.3400   Median : -13.50   Median :17.00   
-##  Mean   : 64.3   Mean   :  0.4329   Mean   : -11.69   Mean   :11.27   
-##  3rd Qu.:123.0   3rd Qu.: 14.8000   3rd Qu.:  10.90   3rd Qu.:18.00   
-##  Max.   :161.0   Max.   : 60.2000   Max.   : 179.00   Max.   :27.00   
-##   gyros_belt_x        gyros_belt_y      gyros_belt_z      accel_belt_x    
-##  Min.   :-1.000000   Min.   :-0.5300   Min.   :-1.2800   Min.   :-81.000  
-##  1st Qu.:-0.030000   1st Qu.: 0.0000   1st Qu.:-0.1800   1st Qu.:-21.000  
-##  Median : 0.030000   Median : 0.0200   Median :-0.1000   Median :-15.000  
-##  Mean   :-0.004556   Mean   : 0.0409   Mean   :-0.1265   Mean   : -5.737  
-##  3rd Qu.: 0.110000   3rd Qu.: 0.1100   3rd Qu.: 0.0000   3rd Qu.: -5.000  
-##  Max.   : 2.220000   Max.   : 0.5100   Max.   : 1.6100   Max.   : 83.000  
-##   accel_belt_y     accel_belt_z    magnet_belt_x    magnet_belt_y  
-##  Min.   :-38.00   Min.   :-262.0   Min.   :-52.00   Min.   :354.0  
-##  1st Qu.:  3.00   1st Qu.:-162.0   1st Qu.:  9.00   1st Qu.:582.0  
-##  Median : 34.00   Median :-151.0   Median : 34.00   Median :601.0  
-##  Mean   : 30.17   Mean   : -72.3   Mean   : 55.15   Mean   :594.1  
-##  3rd Qu.: 61.00   3rd Qu.:  27.0   3rd Qu.: 58.00   3rd Qu.:610.0  
-##  Max.   :149.00   Max.   : 104.0   Max.   :485.00   Max.   :668.0  
-##  magnet_belt_z       roll_arm         pitch_arm          yaw_arm         
-##  Min.   :-623.0   Min.   :-180.00   Min.   :-87.900   Min.   :-179.0000  
-##  1st Qu.:-374.0   1st Qu.: -32.10   1st Qu.:-26.300   1st Qu.: -42.6000  
-##  Median :-319.0   Median :   0.00   Median :  0.000   Median :   0.0000  
-##  Mean   :-344.8   Mean   :  18.41   Mean   : -5.154   Mean   :  -0.6886  
-##  3rd Qu.:-306.0   3rd Qu.:  77.70   3rd Qu.: 10.600   3rd Qu.:  45.8000  
-##  Max.   : 284.0   Max.   : 179.00   Max.   : 88.500   Max.   : 180.0000  
-##  total_accel_arm  gyros_arm_x       gyros_arm_y      gyros_arm_z     
-##  Min.   : 1.00   Min.   :-6.3700   Min.   :-3.320   Min.   :-2.3300  
-##  1st Qu.:17.00   1st Qu.:-1.2400   1st Qu.:-0.820   1st Qu.:-0.0700  
-##  Median :27.00   Median : 0.1000   Median :-0.260   Median : 0.2500  
-##  Mean   :25.62   Mean   : 0.0728   Mean   :-0.273   Mean   : 0.2788  
-##  3rd Qu.:33.00   3rd Qu.: 1.6100   3rd Qu.: 0.130   3rd Qu.: 0.7400  
-##  Max.   :65.00   Max.   : 4.8700   Max.   : 2.780   Max.   : 3.0200  
-##   accel_arm_x       accel_arm_y       accel_arm_z       magnet_arm_x   
-##  Min.   :-377.00   Min.   :-279.00   Min.   :-630.00   Min.   :-575.0  
-##  1st Qu.:-244.00   1st Qu.: -55.00   1st Qu.:-147.00   1st Qu.:-299.0  
-##  Median : -43.00   Median :  14.00   Median : -48.00   Median : 300.0  
-##  Mean   : -59.26   Mean   :  31.96   Mean   : -72.63   Mean   : 197.6  
-##  3rd Qu.:  87.00   3rd Qu.: 139.00   3rd Qu.:  22.00   3rd Qu.: 640.0  
-##  Max.   : 435.00   Max.   : 303.00   Max.   : 292.00   Max.   : 780.0  
-##   magnet_arm_y     magnet_arm_z    roll_dumbbell     pitch_dumbbell   
-##  Min.   :-381.0   Min.   :-596.0   Min.   :-152.83   Min.   :-148.50  
-##  1st Qu.: -15.0   1st Qu.: 119.0   1st Qu.: -20.38   1st Qu.: -39.87  
-##  Median : 200.0   Median : 441.0   Median :  47.89   Median : -21.11  
-##  Mean   : 154.5   Mean   : 303.1   Mean   :  22.88   Mean   : -10.45  
-##  3rd Qu.: 321.0   3rd Qu.: 543.0   3rd Qu.:  67.29   3rd Qu.:  17.91  
-##  Max.   : 582.0   Max.   : 694.0   Max.   : 153.38   Max.   : 129.52  
-##   yaw_dumbbell      total_accel_dumbbell gyros_dumbbell_x 
-##  Min.   :-150.871   Min.   : 0.00        Min.   :-1.9900  
-##  1st Qu.: -77.501   1st Qu.: 4.00        1st Qu.:-0.0300  
-##  Median :  -2.325   Median :10.00        Median : 0.1300  
-##  Mean   :   1.574   Mean   :13.61        Mean   : 0.1673  
-##  3rd Qu.:  79.259   3rd Qu.:19.00        3rd Qu.: 0.3500  
-##  Max.   : 154.952   Max.   :42.00        Max.   : 2.2200  
-##  gyros_dumbbell_y   gyros_dumbbell_z  accel_dumbbell_x  accel_dumbbell_y 
-##  Min.   :-1.99000   Min.   :-2.3000   Min.   :-237.00   Min.   :-182.00  
-##  1st Qu.:-0.14000   1st Qu.:-0.3100   1st Qu.: -50.00   1st Qu.:  -9.00  
-##  Median : 0.03000   Median :-0.1300   Median :  -8.00   Median :  40.00  
-##  Mean   : 0.04093   Mean   :-0.1428   Mean   : -27.91   Mean   :  51.56  
-##  3rd Qu.: 0.21000   3rd Qu.: 0.0300   3rd Qu.:  11.00   3rd Qu.: 109.00  
-##  Max.   : 2.63000   Max.   : 1.7200   Max.   : 216.00   Max.   : 287.00  
-##  accel_dumbbell_z  magnet_dumbbell_x magnet_dumbbell_y magnet_dumbbell_z
-##  Min.   :-334.00   Min.   :-643.0    Min.   :-742.0    Min.   :-245.00  
-##  1st Qu.:-141.00   1st Qu.:-537.0    1st Qu.: 232.0    1st Qu.: -46.00  
-##  Median :  -1.00   Median :-478.0    Median : 308.0    Median :  12.00  
-##  Mean   : -37.42   Mean   :-331.6    Mean   : 224.2    Mean   :  45.62  
-##  3rd Qu.:  38.00   3rd Qu.:-307.0    3rd Qu.: 393.0    3rd Qu.:  93.00  
-##  Max.   : 318.00   Max.   : 582.0    Max.   : 632.0    Max.   : 452.00  
-##   roll_forearm     pitch_forearm     yaw_forearm      total_accel_forearm
-##  Min.   :-180.00   Min.   :-72.50   Min.   :-180.00   Min.   : 0.00      
-##  1st Qu.:  -1.86   1st Qu.:  0.00   1st Qu.: -71.20   1st Qu.:29.00      
-##  Median :  20.60   Median :  8.95   Median :   0.00   Median :35.00      
-##  Mean   :  33.04   Mean   : 10.59   Mean   :  18.03   Mean   :34.52      
-##  3rd Qu.: 140.00   3rd Qu.: 28.30   3rd Qu.: 109.00   3rd Qu.:41.00      
-##  Max.   : 180.00   Max.   : 88.70   Max.   : 180.00   Max.   :79.00      
-##  gyros_forearm_x  gyros_forearm_y   gyros_forearm_z  accel_forearm_x  
-##  Min.   :-2.870   Min.   :-6.4400   Min.   :-4.120   Min.   :-479.00  
-##  1st Qu.:-0.210   1st Qu.:-1.4500   1st Qu.:-0.160   1st Qu.:-179.00  
-##  Median : 0.030   Median : 0.0500   Median : 0.100   Median : -56.00  
-##  Mean   : 0.156   Mean   : 0.1107   Mean   : 0.157   Mean   : -61.44  
-##  3rd Qu.: 0.560   3rd Qu.: 1.6900   3rd Qu.: 0.510   3rd Qu.:  77.00  
-##  Max.   : 3.520   Max.   : 6.1200   Max.   : 4.100   Max.   : 365.00  
-##  accel_forearm_y  accel_forearm_z   magnet_forearm_x  magnet_forearm_y
-##  Min.   :-632.0   Min.   :-446.00   Min.   :-1280.0   Min.   :-882    
-##  1st Qu.:  46.0   1st Qu.:-182.00   1st Qu.: -609.0   1st Qu.: -24    
-##  Median : 191.0   Median : -38.00   Median : -363.0   Median : 581    
-##  Mean   : 158.2   Mean   : -54.92   Mean   : -303.6   Mean   : 368    
-##  3rd Qu.: 310.0   3rd Qu.:  27.00   3rd Qu.:  -54.0   3rd Qu.: 733    
-##  Max.   : 591.0   Max.   : 287.00   Max.   :  672.0   Max.   :1450    
-##  magnet_forearm_z classe  
-##  Min.   :-964.0   A:1674  
-##  1st Qu.: 178.0   B:1139  
-##  Median : 503.0   C:1026  
-##  Mean   : 390.8   D: 964  
-##  3rd Qu.: 650.0   E:1082  
-##  Max.   :1080.0
+##    roll_belt        pitch_belt          yaw_belt       total_accel_belt
+##  Min.   :-28.30   Min.   :-55.8000   Min.   :-178.00   Min.   : 1.00   
+##  1st Qu.:  1.09   1st Qu.:  1.8800   1st Qu.: -88.30   1st Qu.: 3.00   
+##  Median :114.00   Median :  5.3100   Median : -12.30   Median :17.00   
+##  Mean   : 64.57   Mean   :  0.3551   Mean   : -11.22   Mean   :11.34   
+##  3rd Qu.:123.00   3rd Qu.: 15.2000   3rd Qu.:  12.80   3rd Qu.:18.00   
+##  Max.   :162.00   Max.   : 60.1000   Max.   : 179.00   Max.   :28.00   
+##   gyros_belt_x        gyros_belt_y       gyros_belt_z    
+##  Min.   :-1.000000   Min.   :-0.64000   Min.   :-1.4600  
+##  1st Qu.:-0.030000   1st Qu.: 0.00000   1st Qu.:-0.2000  
+##  Median : 0.030000   Median : 0.02000   Median :-0.1000  
+##  Mean   :-0.007704   Mean   : 0.04071   Mean   :-0.1268  
+##  3rd Qu.: 0.110000   3rd Qu.: 0.11000   3rd Qu.:-0.0200  
+##  Max.   : 2.020000   Max.   : 0.64000   Max.   : 1.6200  
+##   accel_belt_x      accel_belt_y     accel_belt_z     magnet_belt_x   
+##  Min.   :-75.000   Min.   :-54.00   Min.   :-268.00   Min.   :-46.00  
+##  1st Qu.:-21.000   1st Qu.:  3.00   1st Qu.:-162.00   1st Qu.:  9.00  
+##  Median :-15.000   Median : 36.00   Median :-153.00   Median : 35.00  
+##  Mean   : -5.564   Mean   : 30.29   Mean   : -72.81   Mean   : 55.12  
+##  3rd Qu.: -5.000   3rd Qu.: 61.00   3rd Qu.:  28.00   3rd Qu.: 59.00  
+##  Max.   : 81.000   Max.   :109.00   Max.   : 104.00   Max.   :485.00  
+##  magnet_belt_y   magnet_belt_z       roll_arm        pitch_arm      
+##  Min.   :365.0   Min.   :-616.0   Min.   :-180.0   Min.   :-88.200  
+##  1st Qu.:582.0   1st Qu.:-375.0   1st Qu.: -31.0   1st Qu.:-25.200  
+##  Median :601.0   Median :-319.0   Median :   0.0   Median :  0.000  
+##  Mean   :594.1   Mean   :-345.5   Mean   :  17.3   Mean   : -4.338  
+##  3rd Qu.:610.0   3rd Qu.:-305.0   3rd Qu.:  76.5   3rd Qu.: 11.200  
+##  Max.   :668.0   Max.   : 284.0   Max.   : 180.0   Max.   : 86.400  
+##     yaw_arm         total_accel_arm  gyros_arm_x        gyros_arm_y     
+##  Min.   :-180.000   Min.   : 1.00   Min.   :-6.36000   Min.   :-3.4000  
+##  1st Qu.: -43.600   1st Qu.:17.00   1st Qu.:-1.32000   1st Qu.:-0.7900  
+##  Median :   0.000   Median :27.00   Median : 0.06000   Median :-0.2400  
+##  Mean   :  -2.004   Mean   :25.49   Mean   : 0.02215   Mean   :-0.2517  
+##  3rd Qu.:  42.600   3rd Qu.:32.00   3rd Qu.: 1.54000   3rd Qu.: 0.1400  
+##  Max.   : 180.000   Max.   :66.00   Max.   : 4.87000   Max.   : 2.8100  
+##   gyros_arm_z       accel_arm_x       accel_arm_y       accel_arm_z     
+##  Min.   :-2.1000   Min.   :-364.00   Min.   :-302.00   Min.   :-636.00  
+##  1st Qu.:-0.0800   1st Qu.:-242.00   1st Qu.: -53.00   1st Qu.:-144.00  
+##  Median : 0.2300   Median : -44.00   Median :  11.00   Median : -44.00  
+##  Mean   : 0.2646   Mean   : -59.51   Mean   :  32.48   Mean   : -70.09  
+##  3rd Qu.: 0.7200   3rd Qu.:  83.00   3rd Qu.: 140.00   3rd Qu.:  25.00  
+##  Max.   : 3.0200   Max.   : 431.00   Max.   : 308.00   Max.   : 292.00  
+##   magnet_arm_x     magnet_arm_y     magnet_arm_z    roll_dumbbell    
+##  Min.   :-578.0   Min.   :-392.0   Min.   :-590.0   Min.   :-153.51  
+##  1st Qu.:-299.0   1st Qu.:  -8.0   1st Qu.: 129.0   1st Qu.: -19.31  
+##  Median : 290.0   Median : 199.0   Median : 444.0   Median :  48.80  
+##  Mean   : 193.5   Mean   : 156.2   Mean   : 308.5   Mean   :  23.51  
+##  3rd Qu.: 638.0   3rd Qu.: 323.0   3rd Qu.: 546.0   3rd Qu.:  68.12  
+##  Max.   : 778.0   Max.   : 577.0   Max.   : 694.0   Max.   : 153.38  
+##  pitch_dumbbell     yaw_dumbbell      total_accel_dumbbell
+##  Min.   :-149.59   Min.   :-150.871   Min.   : 0.00       
+##  1st Qu.: -41.50   1st Qu.: -77.529   1st Qu.: 4.00       
+##  Median : -21.70   Median :  -3.375   Median :11.00       
+##  Mean   : -11.28   Mean   :   1.159   Mean   :13.81       
+##  3rd Qu.:  16.85   3rd Qu.:  77.418   3rd Qu.:20.00       
+##  Max.   : 129.82   Max.   : 154.754   Max.   :42.00       
+##  gyros_dumbbell_x  gyros_dumbbell_y   gyros_dumbbell_z  accel_dumbbell_x 
+##  Min.   :-1.9900   Min.   :-1.96000   Min.   :-2.3000   Min.   :-237.00  
+##  1st Qu.:-0.0200   1st Qu.:-0.14000   1st Qu.:-0.3300   1st Qu.: -51.00  
+##  Median : 0.1400   Median : 0.03000   Median :-0.1300   Median :  -9.00  
+##  Mean   : 0.1763   Mean   : 0.04566   Mean   :-0.1498   Mean   : -29.43  
+##  3rd Qu.: 0.3700   3rd Qu.: 0.21000   3rd Qu.: 0.0300   3rd Qu.:  10.00  
+##  Max.   : 2.2000   Max.   : 4.37000   Max.   : 1.6700   Max.   : 224.00  
+##  accel_dumbbell_y  accel_dumbbell_z  magnet_dumbbell_x magnet_dumbbell_y
+##  Min.   :-189.00   Min.   :-334.00   Min.   :-639.0    Min.   :-744.0   
+##  1st Qu.:  -9.00   1st Qu.:-143.00   1st Qu.:-535.0    1st Qu.: 233.0   
+##  Median :  44.00   Median :  -1.00   Median :-479.0    Median : 311.0   
+##  Mean   :  53.22   Mean   : -39.66   Mean   :-328.3    Mean   : 220.4   
+##  3rd Qu.: 114.00   3rd Qu.:  37.00   3rd Qu.:-307.0    3rd Qu.: 391.0   
+##  Max.   : 300.00   Max.   : 318.00   Max.   : 592.0    Max.   : 633.0   
+##  magnet_dumbbell_z  roll_forearm    pitch_forearm     yaw_forearm     
+##  Min.   :-249.00   Min.   :-180.0   Min.   :-72.50   Min.   :-180.00  
+##  1st Qu.: -44.00   1st Qu.:   0.0   1st Qu.:  0.00   1st Qu.: -67.40  
+##  Median :  14.00   Median :  22.8   Median :  9.04   Median :   0.00  
+##  Mean   :  44.79   Mean   :  35.2   Mean   : 10.61   Mean   :  19.99  
+##  3rd Qu.:  95.00   3rd Qu.: 141.0   3rd Qu.: 27.60   3rd Qu.: 110.00  
+##  Max.   : 452.00   Max.   : 180.0   Max.   : 88.70   Max.   : 180.00  
+##  total_accel_forearm gyros_forearm_x   gyros_forearm_y   
+##  Min.   : 0.00       Min.   :-2.9700   Min.   :-6.62000  
+##  1st Qu.:29.00       1st Qu.:-0.2100   1st Qu.:-1.49000  
+##  Median :35.00       Median : 0.0500   Median : 0.02000  
+##  Mean   :34.64       Mean   : 0.1711   Mean   : 0.03104  
+##  3rd Qu.:41.00       3rd Qu.: 0.5800   3rd Qu.: 1.57000  
+##  Max.   :78.00       Max.   : 3.1000   Max.   : 6.13000  
+##  gyros_forearm_z   accel_forearm_x   accel_forearm_y accel_forearm_z  
+##  Min.   :-3.2300   Min.   :-477.00   Min.   :-632    Min.   :-386.00  
+##  1st Qu.:-0.1600   1st Qu.:-176.00   1st Qu.:  63    1st Qu.:-182.00  
+##  Median : 0.0800   Median : -57.00   Median : 200    Median : -45.00  
+##  Mean   : 0.1338   Mean   : -59.99   Mean   : 164    Mean   : -58.01  
+##  3rd Qu.: 0.4800   3rd Qu.:  78.00   3rd Qu.: 311    3rd Qu.:  25.00  
+##  Max.   : 4.3100   Max.   : 375.00   Max.   : 591    Max.   : 287.00  
+##  magnet_forearm_x  magnet_forearm_y magnet_forearm_z classe  
+##  Min.   :-1280.0   Min.   :-890.0   Min.   :-966.0   A:1674  
+##  1st Qu.: -611.0   1st Qu.:   6.0   1st Qu.: 204.0   B:1139  
+##  Median : -374.0   Median : 590.0   Median : 517.0   C:1026  
+##  Mean   : -308.7   Mean   : 380.1   Mean   : 398.7   D: 964  
+##  3rd Qu.:  -72.0   3rd Qu.: 734.0   3rd Qu.: 653.0   E:1082  
+##  Max.   :  672.0   Max.   :1450.0   Max.   :1070.0
 ```
 
 ```r
@@ -1020,987 +1020,987 @@ print(predcv)
 ```
 
 ```
-##     2     4     6     8    13    18    22    29    30    31    33    43 
+##     2     4    11    21    27    29    33    43    47    49    52    63 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##    49    50    51    54    57    58    60    67    70    75    77    78 
+##    64    68    70    71    72    74    79    84    85    90    95   104 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##    80    81    83    85    88    90    96    97    99   100   103   105 
+##   105   107   108   109   110   111   112   117   118   121   122   135 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   109   113   117   119   127   132   133   139   147   153   155   160 
+##   139   141   142   143   145   146   152   156   158   165   166   167 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   163   167   170   173   174   176   177   202   211   212   215   217 
+##   175   182   195   197   199   200   202   208   212   213   218   219 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   225   227   230   231   234   236   242   245   248   250   251   253 
+##   221   223   227   228   231   232   233   235   236   240   242   246 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   255   256   261   264   265   267   269   271   274   275   280   281 
+##   247   248   249   253   255   256   263   268   269   270   274   275 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   282   288   292   296   311   317   320   326   329   337   339   340 
+##   279   282   284   287   291   292   294   297   299   300   302   310 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   343   346   352   355   357   360   362   368   370   374   375   376 
+##   311   315   318   320   330   336   345   348   356   357   359   361 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   377   379   380   384   385   386   387   391   395   399   403   405 
+##   365   368   371   383   384   387   389   390   391   397   398   401 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   407   413   417   419   425   428   430   440   441   442   444   447 
+##   409   414   416   417   420   423   427   430   442   444   445   446 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   448   451   456   462   463   464   466   467   472   476   477   482 
+##   450   455   457   462   464   466   476   477   478   480   484   485 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   484   485   490   491   502   504   506   508   509   513   514   520 
+##   487   489   492   493   504   506   508   511   512   516   520   521 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   530   532   533   539   546   549   550   551   552   554   560   561 
+##   524   530   537   538   540   543   546   548   550   551   552   553 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   562   564   571   579   593   594   602   603   607   608   610   611 
+##   556   558   559   561   574   581   582   584   585   587   592   594 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   612   613   616   620   621   623   625   627   630   632   636   647 
+##   595   602   603   604   605   607   614   615   620   624   631   633 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   648   654   658   659   661   663   664   666   671   673   675   679 
+##   635   636   644   645   649   651   655   656   657   661   674   680 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   680   681   685   687   693   694   697   698   701   705   707   708 
+##   685   689   690   695   705   714   715   716   719   721   723   724 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   712   714   715   718   720   723   724   726   729   734   736   738 
+##   727   729   734   739   740   742   743   745   753   756   762   763 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   742   747   748   752   753   763   764   765   768   774   776   781 
+##   764   765   767   768   773   774   776   789   795   797   801   803 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   795   798   801   804   809   819   820   826   829   833   836   840 
+##   805   810   813   821   822   826   829   833   834   837   839   840 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   841   847   848   850   852   855   860   861   863   869   871   874 
+##   843   846   848   850   851   864   865   872   874   878   879   884 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   877   878   880   883   885   887   901   902   907   908   912   918 
+##   887   888   890   891   893   896   902   904   905   907   917   919 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   920   922   927   931   932   933   934   935   937   940   945   949 
+##   920   922   923   925   927   928   932   937   942   944   945   946 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##   955   958   960   962   967   976   980   984   996   999  1005  1009 
+##   948   955   956   960   972   982   989   990  1000  1001  1002  1006 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1010  1011  1017  1021  1023  1026  1028  1030  1033  1035  1038  1041 
+##  1008  1010  1012  1013  1015  1019  1020  1021  1022  1025  1026  1028 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1042  1046  1053  1054  1060  1065  1067  1070  1071  1072  1076  1078 
+##  1031  1037  1042  1043  1046  1048  1051  1054  1058  1068  1072  1078 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1082  1084  1087  1093  1097  1100  1101  1102  1111  1114  1120  1125 
+##  1079  1080  1089  1091  1092  1095  1096  1102  1105  1111  1118  1128 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1129  1130  1131  1133  1135  1136  1137  1139  1142  1143  1144  1146 
+##  1132  1133  1136  1137  1141  1142  1143  1153  1154  1155  1157  1161 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1148  1155  1156  1159  1161  1162  1165  1167  1168  1173  1175  1176 
+##  1164  1165  1167  1168  1172  1176  1179  1183  1186  1187  1192  1201 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1181  1182  1183  1186  1187  1192  1193  1194  1196  1200  1208  1210 
+##  1206  1208  1215  1218  1221  1223  1224  1226  1233  1238  1249  1258 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1213  1216  1217  1218  1225  1227  1229  1233  1234  1236  1238  1241 
+##  1262  1269  1271  1280  1286  1289  1292  1293  1296  1300  1301  1305 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1242  1253  1259  1270  1271  1275  1284  1287  1288  1290  1296  1297 
+##  1311  1313  1314  1315  1318  1319  1320  1325  1326  1327  1330  1331 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1302  1304  1310  1311  1321  1323  1325  1327  1336  1343  1345  1351 
+##  1333  1335  1344  1346  1348  1352  1361  1362  1365  1367  1369  1371 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1352  1355  1357  1358  1363  1364  1369  1370  1374  1381  1382  1383 
+##  1372  1373  1375  1379  1387  1392  1399  1400  1407  1409  1410  1412 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1384  1388  1389  1393  1395  1407  1408  1410  1427  1429  1432  1433 
+##  1420  1428  1434  1439  1441  1454  1457  1458  1459  1462  1466  1468 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1435  1438  1447  1451  1453  1467  1470  1484  1487  1492  1494  1495 
+##  1475  1478  1479  1481  1484  1488  1489  1500  1504  1505  1506  1508 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1504  1505  1506  1509  1512  1513  1514  1521  1529  1537  1541  1543 
+##  1509  1510  1511  1514  1518  1524  1527  1529  1540  1541  1542  1545 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1544  1545  1551  1553  1554  1555  1557  1561  1562  1564  1566  1567 
+##  1546  1547  1548  1549  1553  1554  1557  1566  1568  1574  1576  1583 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1576  1578  1579  1584  1585  1587  1591  1595  1596  1607  1608  1617 
+##  1584  1588  1590  1591  1595  1597  1599  1601  1608  1612  1614  1616 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1618  1628  1631  1632  1633  1634  1638  1639  1651  1662  1667  1674 
+##  1619  1621  1624  1628  1632  1637  1640  1645  1651  1667  1670  1672 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1676  1678  1680  1683  1684  1698  1699  1700  1702  1704  1707  1711 
+##  1673  1674  1678  1681  1686  1694  1698  1703  1706  1708  1714  1719 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1723  1727  1728  1730  1738  1739  1744  1745  1746  1750  1751  1754 
+##  1720  1723  1724  1727  1729  1732  1733  1735  1737  1748  1749  1750 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1755  1756  1761  1763  1764  1769  1771  1773  1782  1783  1785  1786 
+##  1751  1752  1753  1754  1756  1758  1761  1764  1766  1770  1772  1788 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1788  1789  1790  1791  1793  1801  1808  1809  1811  1824  1828  1830 
+##  1790  1791  1799  1806  1807  1808  1812  1814  1817  1821  1824  1836 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1834  1835  1838  1843  1844  1846  1847  1850  1851  1852  1857  1860 
+##  1838  1839  1846  1852  1853  1854  1857  1859  1863  1865  1867  1871 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1861  1863  1864  1866  1868  1873  1878  1880  1892  1897  1899  1903 
+##  1872  1874  1886  1891  1892  1893  1894  1896  1898  1899  1902  1903 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1904  1905  1906  1912  1917  1922  1923  1930  1933  1935  1937  1938 
+##  1911  1914  1916  1925  1926  1929  1930  1931  1932  1935  1940  1945 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1939  1947  1952  1960  1963  1967  1968  1970  1972  1975  1977  1978 
+##  1948  1950  1952  1953  1958  1959  1962  1964  1969  1972  1976  1986 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  1981  1982  1986  1988  1989  1992  1995  1997  1998  1999  2002  2003 
+##  1993  1994  1996  1998  2000  2004  2005  2011  2013  2014  2015  2018 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2004  2005  2008  2009  2011  2014  2015  2016  2022  2026  2027  2029 
+##  2020  2024  2025  2028  2031  2033  2034  2035  2036  2041  2044  2052 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2034  2036  2039  2040  2045  2046  2047  2053  2058  2062  2063  2067 
+##  2054  2055  2069  2075  2077  2079  2081  2086  2087  2088  2091  2095 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2075  2077  2078  2080  2086  2089  2103  2111  2113  2116  2117  2119 
+##  2097  2098  2099  2104  2106  2107  2113  2115  2117  2118  2119  2121 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2124  2128  2129  2132  2133  2137  2138  2141  2142  2143  2146  2148 
+##  2122  2123  2125  2126  2127  2128  2130  2132  2133  2134  2140  2143 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2151  2152  2153  2159  2160  2162  2173  2174  2175  2179  2182  2191 
+##  2150  2155  2157  2169  2171  2175  2187  2188  2189  2191  2197  2198 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2194  2197  2204  2206  2209  2210  2213  2215  2219  2221  2224  2226 
+##  2199  2209  2211  2212  2214  2219  2220  2229  2230  2235  2237  2248 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2229  2230  2233  2237  2241  2246  2249  2259  2261  2264  2265  2268 
+##  2252  2258  2259  2261  2273  2276  2278  2279  2283  2284  2287  2289 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2269  2274  2284  2288  2289  2294  2296  2297  2298  2300  2301  2313 
+##  2293  2303  2305  2311  2319  2328  2330  2333  2335  2337  2339  2341 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2315  2316  2324  2327  2331  2333  2334  2336  2340  2343  2345  2346 
+##  2342  2344  2345  2348  2349  2352  2354  2360  2361  2362  2367  2371 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2349  2351  2352  2358  2365  2366  2368  2373  2379  2381  2386  2390 
+##  2375  2377  2378  2389  2390  2393  2397  2398  2400  2403  2407  2409 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2391  2393  2395  2398  2399  2407  2409  2411  2412  2416  2419  2421 
+##  2410  2417  2424  2429  2431  2433  2434  2435  2437  2444  2451  2454 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2422  2427  2434  2435  2436  2442  2446  2452  2457  2460  2462  2463 
+##  2457  2458  2460  2469  2477  2483  2486  2487  2489  2493  2495  2498 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2465  2467  2472  2474  2482  2485  2490  2491  2494  2500  2510  2512 
+##  2500  2503  2506  2507  2513  2514  2515  2519  2520  2524  2526  2527 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2516  2518  2519  2522  2525  2528  2532  2534  2536  2544  2546  2547 
+##  2528  2533  2534  2538  2546  2547  2556  2560  2563  2566  2571  2573 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2548  2549  2556  2557  2560  2561  2562  2565  2566  2567  2570  2573 
+##  2575  2576  2579  2584  2585  2594  2595  2601  2609  2610  2612  2613 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2576  2579  2580  2581  2582  2583  2586  2587  2588  2589  2590  2595 
+##  2615  2617  2618  2626  2633  2636  2639  2641  2643  2646  2648  2652 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2597  2598  2599  2602  2605  2609  2610  2612  2614  2622  2627  2628 
+##  2657  2662  2663  2664  2666  2674  2675  2676  2682  2687  2691  2692 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2629  2632  2635  2637  2638  2639  2643  2644  2651  2656  2657  2659 
+##  2694  2695  2697  2702  2703  2704  2706  2708  2711  2714  2716  2720 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2664  2669  2672  2674  2675  2678  2684  2689  2691  2692  2694  2697 
+##  2721  2728  2732  2736  2740  2742  2745  2746  2749  2757  2764  2766 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2700  2705  2711  2722  2724  2729  2737  2739  2747  2752  2753  2756 
+##  2768  2770  2771  2772  2778  2780  2781  2795  2796  2806  2807  2808 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2763  2765  2770  2784  2786  2787  2792  2798  2799  2800  2802  2803 
+##  2810  2813  2816  2817  2818  2819  2826  2829  2830  2831  2836  2845 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2805  2812  2816  2819  2823  2825  2826  2831  2833  2837  2838  2839 
+##  2846  2847  2853  2854  2862  2864  2870  2871  2876  2877  2882  2883 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2844  2852  2856  2860  2861  2863  2866  2867  2871  2872  2876  2878 
+##  2885  2888  2893  2894  2896  2903  2907  2910  2912  2914  2916  2918 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2882  2885  2889  2892  2894  2901  2906  2907  2915  2927  2928  2930 
+##  2921  2924  2925  2927  2930  2931  2938  2945  2946  2950  2958  2960 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2931  2933  2934  2935  2936  2939  2946  2949  2950  2956  2962  2967 
+##  2964  2969  2975  2979  2989  2991  2993  2994  2998  3000  3004  3007 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  2977  2986  2992  2995  2997  3007  3018  3023  3024  3025  3033  3034 
+##  3013  3015  3019  3023  3024  3026  3030  3031  3035  3041  3042  3044 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3037  3041  3044  3048  3050  3051  3053  3055  3061  3063  3064  3070 
+##  3048  3049  3052  3053  3060  3068  3069  3071  3072  3075  3079  3080 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3071  3075  3076  3077  3079  3084  3087  3088  3093  3097  3098  3099 
+##  3084  3086  3087  3093  3100  3101  3102  3105  3111  3115  3118  3119 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3101  3104  3106  3110  3111  3114  3117  3118  3119  3127  3129  3130 
+##  3123  3124  3129  3130  3135  3143  3144  3145  3147  3152  3157  3166 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3132  3134  3135  3141  3144  3145  3148  3151  3154  3156  3158  3161 
+##  3168  3172  3174  3177  3181  3185  3188  3192  3196  3197  3199  3200 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3165  3167  3172  3182  3188  3190  3209  3210  3211  3215  3225  3227 
+##  3202  3203  3205  3207  3212  3213  3214  3216  3223  3232  3233  3242 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3229  3231  3234  3235  3237  3238  3243  3246  3251  3258  3259  3261 
+##  3246  3248  3249  3255  3260  3263  3269  3271  3273  3278  3280  3281 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3269  3274  3276  3279  3287  3288  3289  3292  3298  3301  3304  3314 
+##  3283  3285  3288  3290  3291  3293  3296  3298  3304  3308  3309  3310 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3315  3321  3323  3331  3333  3336  3337  3339  3341  3343  3346  3351 
+##  3311  3313  3315  3316  3320  3325  3332  3336  3340  3342  3343  3344 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3353  3356  3358  3360  3361  3369  3372  3373  3376  3394  3401  3402 
+##  3346  3347  3348  3349  3354  3356  3357  3359  3363  3364  3365  3367 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3406  3414  3415  3417  3421  3424  3427  3432  3433  3434  3437  3440 
+##  3370  3371  3372  3373  3376  3377  3384  3392  3395  3396  3398  3400 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3444  3445  3452  3456  3457  3460  3462  3463  3467  3468  3470  3471 
+##  3401  3405  3406  3407  3408  3421  3422  3424  3425  3428  3429  3430 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3473  3476  3478  3487  3488  3490  3493  3497  3499  3507  3509  3513 
+##  3431  3432  3433  3434  3436  3438  3440  3448  3450  3452  3453  3454 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3514  3515  3525  3527  3528  3529  3530  3533  3541  3542  3545  3548 
+##  3457  3458  3459  3462  3466  3482  3487  3493  3502  3505  3511  3513 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3552  3553  3554  3556  3558  3560  3563  3564  3572  3573  3574  3576 
+##  3514  3517  3521  3527  3529  3530  3531  3533  3536  3540  3541  3546 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3578  3582  3599  3604  3605  3607  3612  3613  3615  3616  3620  3621 
+##  3553  3554  3555  3558  3561  3562  3567  3569  3572  3574  3581  3583 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3622  3623  3628  3629  3630  3631  3632  3639  3640  3641  3646  3647 
+##  3584  3585  3587  3591  3597  3600  3601  3608  3612  3616  3620  3622 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3650  3651  3656  3658  3662  3664  3671  3673  3677  3679  3694  3696 
+##  3625  3633  3638  3639  3640  3642  3643  3647  3651  3653  3661  3665 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3697  3699  3702  3704  3705  3708  3710  3713  3719  3721  3726  3741 
+##  3669  3677  3681  3682  3683  3685  3690  3691  3696  3698  3702  3706 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3745  3749  3751  3755  3757  3763  3765  3766  3770  3771  3772  3774 
+##  3708  3709  3711  3712  3713  3717  3721  3723  3727  3728  3729  3733 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3776  3778  3788  3793  3795  3796  3804  3805  3806  3807  3808  3809 
+##  3740  3742  3743  3749  3752  3754  3761  3766  3768  3771  3772  3773 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3822  3828  3829  3830  3831  3837  3845  3846  3848  3851  3853  3858 
+##  3780  3788  3796  3800  3804  3816  3827  3830  3831  3832  3835  3840 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3862  3866  3868  3879  3886  3888  3889  3890  3893  3896  3898  3904 
+##  3841  3843  3846  3847  3853  3856  3858  3859  3862  3863  3864  3867 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3909  3910  3912  3919  3921  3924  3932  3933  3934  3936  3941  3946 
+##  3879  3882  3885  3890  3891  3893  3894  3905  3906  3914  3915  3920 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  3951  3952  3953  3954  3955  3961  3968  3973  3976  3977  3980  3981 
-##     A     B     B     A     A     A     A     A     A     A     A     A 
-##  3985  3986  3988  3990  3991  3997  3999  4002  4006  4007  4008  4009 
+##  3926  3927  3931  3940  3943  3950  3952  3954  3955  3961  3962  3967 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4021  4022  4025  4026  4033  4035  4036  4043  4044  4054  4055  4057 
+##  3975  3978  3980  3983  3984  3985  3988  3994  4006  4010  4013  4014 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4058  4060  4064  4070  4073  4079  4080  4081  4086  4087  4091  4092 
+##  4017  4020  4028  4030  4032  4038  4040  4041  4043  4049  4050  4057 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4100  4105  4109  4112  4113  4114  4118  4119  4124  4126  4130  4131 
+##  4062  4066  4067  4069  4074  4076  4079  4085  4087  4088  4091  4097 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4139  4142  4145  4146  4149  4150  4151  4153  4154  4156  4158  4161 
+##  4101  4102  4104  4105  4107  4108  4111  4114  4116  4118  4121  4128 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4162  4173  4176  4177  4178  4179  4181  4182  4186  4200  4202  4204 
+##  4133  4134  4138  4144  4150  4151  4153  4154  4158  4159  4160  4163 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4209  4210  4211  4216  4217  4220  4221  4226  4227  4237  4249  4250 
+##  4166  4170  4176  4182  4183  4184  4188  4189  4192  4204  4205  4214 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4251  4253  4260  4271  4276  4278  4281  4282  4283  4286  4287  4288 
+##  4215  4216  4219  4221  4226  4228  4239  4240  4241  4244  4246  4247 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4289  4292  4294  4299  4300  4301  4304  4311  4313  4317  4318  4319 
+##  4249  4250  4251  4258  4263  4268  4270  4278  4279  4282  4286  4288 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4322  4323  4325  4330  4336  4342  4344  4348  4350  4353  4357  4359 
+##  4289  4292  4295  4296  4298  4299  4315  4318  4326  4329  4330  4331 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4362  4363  4366  4368  4372  4373  4375  4378  4379  4381  4384  4389 
+##  4333  4334  4348  4356  4358  4359  4361  4364  4366  4369  4371  4375 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4390  4391  4394  4400  4401  4405  4409  4411  4414  4415  4416  4417 
+##  4376  4377  4383  4384  4386  4389  4391  4392  4396  4401  4402  4403 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4424  4431  4434  4436  4438  4440  4442  4446  4453  4455  4459  4460 
+##  4404  4407  4413  4427  4428  4435  4441  4446  4447  4449  4451  4455 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4464  4466  4469  4470  4471  4472  4478  4487  4489  4495  4497  4498 
+##  4457  4458  4465  4471  4473  4475  4476  4482  4483  4486  4488  4489 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4499  4505  4518  4519  4535  4542  4548  4555  4560  4562  4568  4570 
+##  4490  4495  4496  4500  4501  4506  4513  4514  4515  4522  4523  4524 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4571  4576  4577  4581  4582  4583  4585  4588  4593  4594  4596  4598 
+##  4525  4529  4532  4535  4539  4541  4543  4545  4549  4551  4555  4556 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4602  4603  4606  4607  4611  4613  4614  4616  4623  4626  4632  4636 
+##  4558  4561  4564  4566  4567  4569  4571  4573  4580  4583  4585  4586 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4638  4640  4641  4643  4648  4649  4653  4663  4672  4673  4676  4681 
+##  4587  4591  4597  4602  4603  4608  4610  4612  4613  4615  4616  4618 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4692  4700  4707  4718  4720  4721  4722  4730  4732  4735  4736  4737 
+##  4621  4624  4630  4632  4634  4644  4646  4648  4650  4653  4655  4659 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4744  4745  4747  4751  4753  4754  4756  4763  4768  4771  4772  4773 
+##  4661  4665  4666  4674  4679  4691  4693  4696  4701  4708  4709  4710 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4775  4776  4777  4785  4787  4788  4790  4798  4799  4801  4804  4808 
+##  4713  4715  4722  4725  4728  4735  4742  4753  4754  4758  4764  4765 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4811  4814  4821  4833  4834  4835  4842  4847  4858  4860  4874  4876 
+##  4768  4771  4774  4775  4778  4785  4789  4790  4793  4794  4797  4801 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4880  4885  4889  4891  4898  4901  4905  4909  4911  4915  4924  4926 
+##  4802  4805  4806  4808  4813  4816  4820  4821  4823  4825  4827  4829 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4930  4943  4944  4946  4948  4950  4951  4965  4966  4969  4971  4978 
+##  4834  4837  4844  4847  4853  4857  4863  4865  4866  4868  4874  4879 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  4982  4984  4987  4989  4992  5001  5002  5006  5008  5009  5010  5011 
+##  4882  4883  4888  4889  4890  4895  4898  4899  4902  4903  4905  4908 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5012  5013  5015  5016  5017  5018  5027  5035  5037  5042  5043  5046 
+##  4911  4914  4916  4917  4918  4920  4925  4936  4939  4943  4944  4946 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5053  5054  5062  5072  5077  5080  5086  5090  5094  5097  5099  5100 
+##  4957  4961  4966  4968  4969  4971  4978  4979  4981  4984  4985  4987 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5102  5104  5106  5108  5110  5112  5113  5115  5118  5119  5128  5132 
+##  4990  4994  4996  5002  5003  5005  5008  5009  5011  5016  5019  5021 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5135  5136  5143  5146  5148  5150  5153  5154  5157  5159  5161  5162 
+##  5025  5027  5030  5036  5037  5049  5052  5060  5062  5063  5064  5066 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5163  5165  5166  5168  5170  5175  5176  5177  5178  5180  5181  5186 
+##  5072  5073  5075  5084  5085  5087  5090  5094  5098  5105  5106  5109 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5188  5191  5200  5202  5203  5205  5207  5208  5210  5218  5223  5226 
+##  5111  5114  5123  5128  5135  5142  5143  5149  5153  5158  5159  5164 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5227  5236  5237  5239  5240  5242  5246  5247  5248  5251  5253  5257 
+##  5166  5170  5171  5174  5177  5182  5185  5186  5190  5192  5198  5199 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5260  5262  5274  5277  5283  5285  5292  5293  5296  5299  5303  5304 
+##  5202  5205  5207  5216  5218  5223  5229  5234  5241  5246  5250  5251 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5305  5311  5316  5320  5329  5330  5338  5341  5342  5344  5350  5351 
+##  5252  5256  5263  5264  5277  5280  5283  5284  5289  5291  5295  5296 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5366  5368  5370  5374  5381  5383  5386  5389  5393  5396  5400  5401 
+##  5299  5301  5303  5306  5307  5311  5312  5313  5317  5323  5325  5328 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5402  5404  5405  5408  5410  5413  5415  5419  5422  5423  5427  5429 
+##  5338  5339  5340  5346  5347  5348  5352  5353  5356  5364  5365  5368 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5431  5441  5446  5453  5454  5460  5465  5466  5467  5470  5471  5472 
+##  5369  5370  5374  5375  5377  5378  5379  5380  5381  5384  5387  5393 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5473  5481  5493  5497  5498  5499  5501  5502  5507  5509  5514  5518 
+##  5395  5410  5412  5417  5423  5425  5430  5432  5435  5437  5438  5442 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5522  5524  5528  5531  5532  5537  5541  5547  5550  5551  5553  5558 
+##  5453  5464  5469  5483  5484  5486  5491  5493  5495  5500  5514  5515 
 ##     A     A     A     A     A     A     A     A     A     A     A     A 
-##  5563  5568  5576  5577  5578  5580  5582  5583  5586  5592  5593  5604 
-##     A     A     A     A     A     A     A     A     B     B     B     B 
-##  5617  5620  5622  5625  5628  5630  5638  5640  5648  5650  5652  5653 
+##  5516  5517  5523  5524  5525  5533  5534  5541  5546  5548  5558  5560 
+##     A     A     A     A     A     A     A     A     A     A     A     A 
+##  5561  5562  5571  5574  5577  5578  5590  5591  5599  5600  5604  5605 
+##     A     A     A     A     A     A     B     B     B     B     B     B 
+##  5606  5613  5616  5618  5624  5626  5627  5636  5637  5642  5644  5648 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  5664  5666  5674  5684  5687  5691  5693  5694  5695  5699  5704  5705 
+##  5649  5650  5652  5654  5655  5656  5657  5665  5666  5681  5682  5688 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  5709  5714  5715  5718  5724  5725  5729  5734  5735  5736  5740  5741 
+##  5691  5694  5702  5703  5704  5707  5709  5714  5721  5728  5729  5733 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  5742  5743  5745  5747  5748  5752  5755  5757  5760  5762  5764  5765 
+##  5734  5740  5742  5744  5749  5750  5751  5752  5753  5759  5761  5764 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  5766  5769  5771  5772  5775  5778  5781  5786  5791  5797  5801  5803 
+##  5765  5766  5770  5772  5776  5779  5781  5785  5788  5789  5795  5796 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  5805  5806  5808  5813  5818  5824  5826  5827  5830  5834  5836  5838 
+##  5798  5806  5807  5809  5810  5814  5815  5824  5825  5830  5831  5840 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  5840  5841  5843  5847  5850  5856  5858  5861  5867  5869  5874  5875 
+##  5843  5844  5848  5849  5851  5853  5858  5862  5864  5866  5874  5879 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  5882  5886  5889  5891  5893  5894  5896  5897  5903  5904  5906  5910 
+##  5880  5884  5885  5886  5894  5897  5903  5907  5911  5914  5918  5919 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  5911  5918  5920  5921  5931  5933  5938  5942  5948  5949  5957  5965 
+##  5921  5929  5935  5938  5940  5941  5946  5948  5951  5957  5969  5971 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  5966  5968  5970  5971  5975  5977  5979  5985  5988  6012  6013  6016 
+##  5972  5974  5976  5981  5984  5986  5987  5988  5989  5990  5992  5998 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6020  6026  6028  6031  6032  6033  6035  6036  6043  6049  6052  6062 
+##  6001  6003  6010  6016  6018  6023  6024  6025  6036  6037  6040  6042 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6072  6074  6075  6076  6080  6082  6085  6088  6095  6097  6098  6102 
+##  6048  6054  6056  6058  6062  6063  6064  6067  6068  6082  6085  6088 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6103  6116  6122  6123  6129  6131  6133  6134  6135  6143  6144  6146 
+##  6098  6101  6106  6107  6111  6115  6120  6121  6122  6124  6128  6129 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6150  6151  6152  6154  6155  6161  6164  6165  6174  6175  6176  6178 
+##  6131  6132  6143  6144  6145  6149  6156  6158  6159  6169  6173  6174 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6179  6181  6182  6187  6188  6193  6194  6199  6200  6201  6202  6205 
+##  6177  6180  6182  6188  6192  6195  6196  6197  6208  6209  6210  6219 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6206  6210  6220  6222  6225  6228  6233  6235  6240  6245  6249  6250 
+##  6221  6222  6224  6227  6229  6230  6231  6234  6239  6242  6245  6248 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6252  6253  6259  6260  6262  6263  6267  6268  6273  6282  6287  6291 
+##  6253  6254  6257  6265  6268  6270  6274  6275  6278  6281  6282  6287 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6297  6298  6299  6301  6302  6307  6308  6320  6326  6332  6333  6335 
+##  6288  6292  6294  6295  6302  6309  6313  6315  6316  6317  6318  6325 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6340  6344  6346  6352  6354  6356  6359  6366  6368  6375  6376  6380 
+##  6326  6327  6331  6333  6335  6343  6345  6347  6351  6354  6355  6374 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6381  6382  6386  6387  6389  6390  6391  6394  6397  6398  6400  6414 
+##  6376  6381  6382  6385  6388  6391  6401  6402  6410  6411  6412  6413 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6417  6421  6423  6426  6428  6429  6436  6437  6446  6448  6452  6453 
+##  6415  6416  6417  6418  6425  6429  6431  6433  6437  6438  6440  6441 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6457  6458  6463  6466  6467  6469  6470  6472  6475  6480  6484  6489 
-##     B     B     B     B     B     B     B     A     B     B     B     B 
-##  6497  6501  6502  6506  6518  6521  6523  6529  6530  6540  6541  6544 
+##  6449  6453  6454  6455  6457  6460  6461  6467  6468  6469  6471  6475 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6545  6546  6548  6551  6552  6554  6556  6564  6565  6566  6569  6580 
+##  6477  6480  6481  6486  6487  6489  6492  6493  6496  6502  6508  6520 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6581  6582  6583  6586  6587  6589  6590  6591  6592  6593  6596  6597 
+##  6521  6523  6533  6534  6540  6545  6546  6551  6561  6565  6568  6575 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6604  6608  6610  6613  6615  6618  6623  6624  6625  6626  6632  6639 
+##  6576  6582  6583  6584  6587  6588  6590  6591  6594  6602  6603  6604 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6640  6644  6645  6652  6655  6656  6657  6668  6669  6680  6684  6686 
+##  6605  6606  6610  6613  6615  6616  6621  6625  6626  6629  6637  6641 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6689  6693  6695  6697  6699  6703  6705  6708  6719  6720  6723  6727 
+##  6647  6653  6655  6656  6658  6659  6660  6663  6670  6677  6679  6689 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6729  6730  6737  6738  6740  6742  6743  6744  6745  6750  6753  6754 
+##  6690  6692  6693  6708  6718  6720  6724  6725  6729  6730  6734  6735 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6758  6759  6760  6764  6767  6769  6770  6779  6783  6791  6796  6799 
+##  6739  6741  6743  6745  6746  6749  6750  6754  6757  6758  6761  6762 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6801  6803  6807  6810  6815  6816  6820  6821  6825  6826  6828  6830 
+##  6766  6768  6769  6773  6776  6777  6779  6781  6786  6790  6792  6794 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6836  6837  6843  6847  6849  6850  6856  6865  6867  6874  6885  6886 
+##  6796  6805  6807  6813  6816  6823  6825  6828  6830  6831  6833  6839 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6891  6894  6900  6901  6902  6905  6909  6914  6918  6920  6923  6929 
+##  6840  6841  6842  6848  6851  6852  6857  6858  6864  6879  6883  6886 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6930  6931  6932  6936  6937  6941  6945  6948  6955  6956  6957  6962 
+##  6890  6895  6897  6901  6902  6912  6914  6916  6917  6922  6929  6930 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6965  6966  6967  6970  6973  6974  6976  6980  6984  6985  6987  6988 
+##  6938  6946  6947  6948  6950  6952  6959  6965  6968  6970  6976  6980 
+##     B     A     A     B     B     B     B     B     B     B     B     B 
+##  6981  6984  6988  6995  7000  7002  7018  7022  7031  7038  7044  7049 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  6997  7000  7001  7010  7011  7015  7016  7021  7028  7030  7033  7036 
+##  7050  7055  7057  7059  7060  7061  7063  7066  7069  7074  7077  7081 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7042  7043  7045  7049  7052  7054  7055  7058  7065  7073  7084  7089 
+##  7085  7089  7093  7094  7098  7102  7103  7105  7108  7110  7111  7112 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7090  7092  7095  7097  7099  7102  7103  7106  7107  7108  7109  7113 
+##  7119  7120  7124  7126  7135  7138  7139  7141  7142  7146  7148  7154 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7114  7118  7127  7131  7135  7142  7143  7146  7147  7148  7150  7154 
+##  7155  7160  7166  7168  7170  7171  7175  7177  7183  7184  7185  7186 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7155  7156  7158  7159  7165  7173  7177  7178  7181  7183  7189  7190 
+##  7198  7199  7201  7202  7206  7216  7217  7218  7220  7222  7223  7231 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7193  7199  7202  7205  7207  7209  7211  7219  7221  7225  7233  7235 
+##  7236  7238  7239  7241  7249  7250  7251  7252  7259  7260  7263  7268 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7243  7244  7245  7249  7255  7260  7262  7272  7274  7277  7282  7284 
+##  7279  7285  7286  7289  7294  7296  7300  7303  7305  7306  7311  7313 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7288  7289  7290  7297  7298  7300  7313  7321  7322  7326  7331  7332 
+##  7317  7319  7321  7322  7324  7328  7329  7334  7336  7338  7339  7344 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7334  7335  7342  7345  7350  7352  7353  7355  7363  7365  7368  7369 
+##  7347  7354  7355  7356  7358  7360  7361  7362  7363  7375  7379  7380 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7370  7372  7375  7379  7380  7382  7394  7400  7402  7403  7411  7414 
+##  7382  7385  7386  7388  7392  7395  7398  7399  7400  7405  7409  7412 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7415  7417  7418  7420  7424  7427  7428  7431  7435  7436  7442  7449 
+##  7415  7416  7421  7423  7424  7426  7427  7430  7432  7434  7436  7444 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7472  7473  7475  7477  7478  7479  7485  7487  7493  7505  7508  7511 
+##  7445  7446  7447  7450  7451  7464  7466  7473  7474  7477  7487  7488 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7512  7516  7517  7522  7527  7528  7529  7531  7535  7536  7550  7553 
+##  7492  7493  7495  7496  7500  7501  7509  7511  7518  7520  7521  7523 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7554  7570  7575  7583  7584  7585  7587  7591  7592  7596  7600  7606 
+##  7524  7526  7538  7541  7543  7550  7557  7560  7565  7566  7567  7570 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7607  7613  7616  7617  7620  7622  7629  7630  7633  7635  7640  7645 
+##  7579  7597  7602  7603  7613  7617  7621  7627  7629  7631  7632  7633 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7648  7655  7656  7657  7658  7661  7662  7667  7669  7685  7686  7691 
+##  7638  7640  7642  7643  7646  7652  7654  7657  7658  7659  7660  7662 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7693  7694  7698  7702  7710  7711  7712  7718  7723  7724  7731  7735 
+##  7678  7680  7681  7683  7684  7685  7687  7688  7689  7690  7693  7695 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7741  7742  7743  7744  7748  7752  7754  7760  7763  7765  7772  7783 
+##  7702  7707  7713  7714  7718  7719  7728  7731  7732  7741  7744  7749 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7789  7790  7796  7803  7805  7810  7812  7818  7819  7821  7823  7827 
+##  7750  7751  7756  7758  7760  7762  7766  7772  7773  7781  7783  7789 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7828  7832  7838  7839  7841  7842  7853  7855  7856  7859  7860  7862 
+##  7792  7794  7799  7801  7805  7806  7810  7811  7813  7815  7816  7817 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7863  7866  7868  7869  7878  7879  7881  7888  7892  7893  7895  7902 
+##  7819  7825  7826  7832  7836  7840  7843  7845  7848  7849  7852  7860 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7908  7911  7916  7918  7921  7928  7934  7935  7936  7939  7947  7948 
+##  7861  7863  7866  7874  7875  7879  7888  7892  7896  7897  7902  7904 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  7956  7957  7959  7961  7963  7965  7967  7975  7976  7979  7981  7991 
-##     B     A     B     A     B     B     B     B     B     B     B     B 
-##  7993  7996  7999  8001  8003  8005  8012  8015  8021  8022  8032  8033 
+##  7907  7909  7916  7917  7918  7925  7928  7930  7932  7940  7942  7943 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8034  8037  8041  8046  8047  8051  8054  8057  8061  8064  8069  8073 
+##  7944  7945  7948  7953  7957  7958  7977  7980  7983  7985  7988  7989 
+##     B     B     B     B     A     A     B     B     B     B     B     B 
+##  7997  8001  8002  8004  8012  8016  8021  8024  8025  8027  8038  8040 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8074  8085  8088  8089  8091  8092  8093  8096  8098  8099  8102  8106 
+##  8046  8054  8057  8060  8061  8063  8068  8069  8070  8072  8079  8080 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8108  8111  8112  8113  8114  8121  8124  8125  8128  8133  8143  8148 
+##  8082  8084  8086  8089  8090  8101  8104  8106  8111  8113  8115  8118 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8154  8156  8157  8166  8167  8168  8172  8179  8180  8181  8183  8185 
+##  8123  8125  8131  8132  8134  8135  8138  8142  8143  8144  8145  8149 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8197  8201  8202  8207  8210  8211  8212  8215  8226  8229  8232  8233 
+##  8151  8152  8153  8154  8156  8159  8161  8163  8164  8165  8173  8174 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8234  8238  8240  8241  8242  8256  8259  8261  8263  8265  8266  8267 
+##  8181  8182  8184  8194  8198  8200  8201  8203  8204  8213  8225  8227 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8270  8272  8274  8279  8280  8284  8285  8291  8294  8298  8299  8301 
+##  8230  8233  8235  8236  8238  8242  8246  8251  8259  8263  8268  8274 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8304  8305  8308  8311  8317  8318  8329  8331  8332  8333  8335  8337 
+##  8276  8281  8283  8288  8293  8295  8296  8298  8299  8301  8302  8303 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8338  8340  8345  8348  8354  8356  8359  8364  8367  8371  8374  8375 
+##  8305  8308  8310  8311  8312  8319  8320  8329  8331  8332  8337  8339 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8376  8380  8384  8385  8387  8389  8394  8397  8400  8402  8407  8411 
+##  8342  8343  8344  8346  8348  8349  8350  8352  8360  8361  8362  8368 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8412  8413  8416  8417  8419  8424  8429  8433  8436  8438  8439  8440 
+##  8371  8373  8376  8381  8383  8387  8388  8392  8398  8403  8405  8407 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8444  8445  8447  8450  8451  8457  8460  8462  8464  8465  8471  8480 
+##  8408  8411  8412  8414  8421  8422  8425  8427  8428  8436  8442  8453 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8485  8489  8490  8493  8498  8499  8500  8502  8504  8505  8508  8512 
+##  8454  8457  8460  8471  8475  8484  8485  8486  8491  8492  8494  8496 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8514  8518  8523  8528  8529  8530  8535  8536  8544  8545  8551  8555 
+##  8501  8508  8513  8516  8519  8521  8523  8524  8530  8536  8537  8539 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8564  8567  8573  8574  8575  8577  8578  8580  8582  8584  8589  8591 
+##  8541  8547  8548  8553  8556  8558  8564  8565  8568  8571  8575  8587 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8592  8594  8596  8608  8611  8616  8617  8620  8624  8626  8628  8633 
+##  8591  8598  8600  8605  8607  8608  8614  8615  8616  8622  8626  8629 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8636  8640  8642  8646  8653  8654  8655  8664  8666  8673  8677  8684 
+##  8630  8632  8635  8640  8641  8650  8651  8657  8659  8665  8666  8671 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8685  8689  8691  8694  8695  8697  8698  8700  8701  8705  8707  8710 
+##  8678  8684  8687  8689  8694  8695  8699  8701  8703  8717  8719  8722 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8712  8718  8719  8720  8721  8724  8727  8728  8732  8736  8738  8745 
+##  8727  8735  8736  8740  8741  8754  8756  8760  8763  8766  8771  8774 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8749  8753  8755  8757  8758  8763  8765  8766  8769  8770  8773  8774 
+##  8778  8780  8782  8784  8785  8789  8790  8796  8797  8798  8803  8804 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8779  8780  8783  8784  8785  8787  8788  8793  8794  8800  8802  8807 
+##  8805  8807  8815  8817  8821  8822  8836  8839  8840  8845  8847  8848 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8810  8813  8814  8815  8824  8827  8828  8836  8837  8839  8840  8850 
+##  8851  8860  8865  8870  8871  8872  8873  8874  8876  8877  8879  8884 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8853  8854  8855  8860  8861  8863  8864  8870  8873  8875  8882  8883 
+##  8885  8887  8888  8889  8895  8897  8902  8909  8910  8912  8914  8915 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8885  8889  8891  8892  8894  8896  8905  8908  8913  8916  8917  8920 
+##  8918  8921  8926  8930  8932  8933  8934  8937  8939  8941  8942  8943 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8921  8922  8923  8930  8932  8939  8941  8943  8953  8958  8960  8961 
+##  8947  8950  8953  8954  8958  8959  8960  8963  8967  8969  8974  8978 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  8964  8966  8968  8975  8979  8981  8985  8988  8991  8995  8997  9002 
+##  8980  8985  8987  8989  9000  9003  9007  9009  9012  9019  9020  9022 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  9006  9018  9019  9021  9023  9025  9026  9034  9044  9049  9053  9054 
+##  9024  9034  9036  9037  9046  9056  9060  9062  9063  9069  9072  9073 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  9055  9056  9057  9067  9071  9072  9075  9077  9080  9081  9086  9092 
+##  9075  9077  9078  9079  9087  9088  9089  9092  9095  9098  9099  9102 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  9095  9097  9104  9112  9116  9120  9122  9129  9135  9138  9141  9142 
+##  9105  9109  9110  9111  9118  9120  9121  9123  9126  9132  9133  9134 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  9144  9145  9147  9148  9149  9150  9152  9153  9154  9157  9159  9160 
+##  9135  9149  9151  9152  9153  9162  9163  9164  9165  9167  9169  9171 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  9161  9163  9168  9170  9175  9179  9182  9183  9191  9193  9195  9202 
+##  9172  9180  9181  9183  9184  9189  9193  9210  9221  9222  9223  9226 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  9216  9223  9226  9227  9229  9233  9239  9244  9247  9249  9251  9252 
+##  9227  9233  9235  9237  9241  9246  9252  9258  9259  9261  9263  9265 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  9253  9257  9263  9264  9267  9269  9283  9285  9286  9287  9289  9294 
+##  9270  9271  9276  9280  9282  9286  9294  9297  9298  9300  9302  9304 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  9295  9297  9302  9304  9305  9306  9309  9311  9312  9313  9317  9318 
-##     B     B     B     B     B     B     B     B     C     B     B     B 
-##  9324  9331  9341  9347  9352  9353  9355  9356  9359  9360  9361  9369 
+##  9306  9307  9309  9310  9311  9312  9314  9317  9322  9323  9325  9326 
+##     B     B     B     B     B     C     B     B     B     B     B     B 
+##  9330  9331  9333  9339  9341  9344  9345  9351  9353  9358  9361  9364 
 ##     B     B     B     B     B     B     B     B     B     B     B     B 
-##  9370  9374  9375  9376  9377  9380  9384  9387  9393  9395  9397  9398 
-##     B     B     B     B     B     C     C     C     C     C     C     C 
-##  9399  9405  9406  9409  9410  9416  9420  9427  9431  9434  9436  9438 
+##  9365  9366  9367  9373  9374  9378  9379  9383  9385  9387  9399  9400 
+##     B     B     B     B     B     B     C     C     C     C     C     C 
+##  9404  9405  9407  9411  9416  9427  9430  9436  9439  9440  9441  9443 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9440  9442  9446  9448  9457  9458  9466  9469  9476  9481  9483  9491 
+##  9445  9447  9451  9452  9453  9454  9455  9456  9457  9462  9464  9465 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9494  9495  9498  9499  9501  9505  9506  9509  9514  9516  9519  9521 
+##  9467  9469  9475  9478  9481  9482  9484  9485  9487  9488  9490  9493 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9522  9528  9529  9530  9533  9538  9539  9551  9553  9557  9565  9566 
+##  9494  9495  9496  9504  9505  9510  9511  9512  9513  9514  9519  9520 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9569  9570  9578  9581  9592  9595  9597  9599  9601  9602  9604  9607 
+##  9530  9535  9538  9539  9542  9545  9548  9550  9556  9563  9564  9565 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9609  9611  9616  9619  9622  9628  9639  9645  9650  9654  9657  9661 
+##  9568  9569  9570  9573  9575  9578  9584  9586  9589  9596  9597  9604 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9663  9665  9668  9671  9686  9689  9690  9693  9698  9706  9707  9712 
+##  9606  9607  9620  9628  9631  9635  9636  9637  9639  9645  9646  9656 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9713  9718  9720  9721  9738  9739  9740  9749  9752  9753  9757  9758 
+##  9664  9667  9669  9673  9677  9678  9684  9685  9686  9692  9693  9696 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9761  9762  9772  9775  9779  9789  9792  9794  9798  9802  9803  9810 
+##  9702  9708  9709  9710  9712  9713  9716  9717  9718  9726  9730  9731 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9814  9818  9819  9820  9822  9830  9844  9845  9848  9851  9855  9863 
+##  9734  9735  9737  9747  9755  9759  9774  9775  9777  9782  9783  9784 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9865  9866  9867  9868  9873  9874  9875  9876  9879  9881  9886  9889 
+##  9791  9792  9797  9799  9802  9806  9807  9812  9818  9819  9822  9824 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9893  9895  9897  9898  9900  9901  9903  9907  9913  9920  9927  9933 
+##  9829  9830  9837  9838  9841  9842  9846  9848  9850  9858  9864  9870 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-##  9952  9953  9956  9957  9961  9968  9972  9975  9989  9991  9998 10002 
+##  9875  9876  9881  9885  9887  9889  9891  9892  9893  9898  9899  9905 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10018 10020 10021 10030 10031 10032 10035 10036 10037 10041 10047 10049 
+##  9908  9909  9910  9912  9913  9916  9918  9922  9924  9925  9926  9928 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10051 10054 10060 10061 10069 10070 10071 10092 10095 10097 10099 10100 
+##  9940  9942  9944  9946  9947  9950  9951  9952  9954  9958  9965  9967 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10105 10107 10109 10110 10111 10115 10119 10123 10125 10126 10129 10130 
+##  9972  9973  9976  9978  9979  9980  9982  9985  9986  9990  9991  9995 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10131 10135 10137 10141 10144 10146 10148 10149 10156 10159 10160 10163 
+## 10000 10011 10019 10020 10024 10031 10036 10044 10046 10048 10063 10078 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10164 10167 10168 10173 10175 10176 10178 10179 10180 10181 10185 10186 
-##     C     C     C     C     C     B     C     C     C     C     C     C 
-## 10189 10190 10192 10195 10203 10204 10208 10210 10217 10225 10226 10228 
+## 10079 10101 10103 10104 10111 10114 10117 10121 10123 10125 10126 10128 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10237 10238 10240 10242 10243 10244 10246 10247 10249 10251 10253 10256 
+## 10132 10134 10140 10141 10144 10145 10147 10149 10152 10154 10155 10166 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10262 10266 10268 10281 10283 10284 10291 10296 10298 10299 10301 10302 
+## 10169 10171 10176 10179 10190 10198 10199 10202 10204 10208 10209 10210 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10310 10311 10312 10321 10323 10325 10329 10332 10336 10338 10342 10344 
+## 10211 10213 10215 10227 10228 10229 10231 10232 10234 10235 10243 10254 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10345 10349 10357 10359 10361 10363 10365 10366 10370 10371 10373 10374 
+## 10255 10257 10258 10262 10267 10271 10278 10279 10284 10289 10290 10291 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10375 10377 10378 10380 10381 10382 10386 10388 10393 10394 10397 10398 
+## 10293 10294 10298 10299 10305 10308 10309 10311 10319 10321 10324 10328 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10402 10403 10404 10411 10413 10416 10420 10423 10429 10430 10440 10447 
+## 10331 10338 10345 10349 10353 10359 10362 10364 10371 10373 10375 10376 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10449 10455 10456 10460 10461 10470 10482 10485 10488 10492 10493 10494 
+## 10379 10380 10382 10389 10390 10394 10398 10405 10406 10411 10424 10427 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10495 10496 10500 10503 10506 10509 10510 10517 10520 10523 10524 10525 
+## 10428 10429 10431 10434 10437 10442 10446 10459 10463 10465 10467 10469 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10534 10537 10539 10540 10541 10544 10546 10554 10555 10556 10561 10562 
+## 10471 10472 10476 10477 10478 10480 10482 10483 10484 10487 10489 10495 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10565 10566 10567 10568 10569 10570 10574 10577 10579 10581 10584 10587 
+## 10499 10500 10505 10509 10513 10514 10516 10517 10519 10530 10535 10539 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10589 10591 10593 10594 10597 10598 10599 10603 10604 10606 10607 10608 
+## 10541 10542 10549 10551 10555 10556 10567 10568 10569 10572 10574 10577 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10611 10615 10616 10623 10626 10627 10628 10637 10638 10642 10644 10648 
+## 10578 10579 10581 10588 10589 10590 10591 10595 10597 10599 10601 10603 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10607 10608 10610 10621 10622 10630 10631 10632 10634 10638 10640 10641 
+##     C     C     C     C     C     B     B     B     C     C     C     C 
+## 10644 10645 10648 10649 10651 10656 10666 10670 10673 10675 10677 10678 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10682 10684 10686 10689 10691 10699 10702 10706 10707 10708 10709 10711 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10712 10714 10717 10723 10725 10726 10728 10734 10736 10740 10742 10744 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10747 10753 10756 10762 10764 10766 10768 10775 10777 10778 10779 10781 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10782 10787 10788 10789 10794 10795 10802 10803 10808 10811 10812 10815 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10824 10826 10833 10835 10837 10839 10843 10844 10851 10852 10858 10860 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10861 10864 10865 10868 10874 10879 10884 10885 10894 10898 10902 10903 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10904 10905 10913 10919 10923 10925 10933 10940 10943 10948 10949 10950 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10953 10956 10957 10958 10964 10965 10967 10969 10976 10978 10979 10981 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 10986 10991 10994 10998 11000 11005 11007 11008 11013 11014 11018 11021 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 11035 11037 11038 11048 11050 11051 11064 11068 11073 11075 11080 11094 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 11099 11100 11101 11102 11103 11110 11113 11117 11119 11124 11127 11128 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 11134 11135 11136 11139 11142 11146 11147 11148 11149 11156 11157 11166 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 11167 11168 11170 11176 11177 11178 11180 11184 11185 11188 11189 11190 
+##     C     C     C     C     C     C     C     C     C     C     C     C 
+## 11192 11195 11197 11202 11205 11206 11208 11212 11213 11216 11221 11223 
 ##     C     C     C     C     C     C     B     C     C     C     C     C 
-## 10649 10650 10654 10655 10661 10662 10665 10666 10669 10670 10673 10674 
+## 11224 11230 11232 11233 11236 11241 11242 11252 11254 11255 11263 11273 
+##     C     C     C     B     C     C     C     C     C     C     C     C 
+## 11274 11275 11277 11278 11284 11287 11290 11298 11301 11307 11314 11316 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10676 10677 10678 10679 10684 10685 10688 10693 10697 10703 10716 10718 
+## 11317 11327 11330 11331 11333 11335 11336 11341 11342 11345 11357 11359 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10719 10730 10731 10733 10734 10741 10742 10747 10752 10755 10758 10759 
+## 11360 11362 11365 11369 11370 11373 11374 11375 11376 11383 11385 11388 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10762 10763 10766 10767 10771 10774 10779 10786 10787 10798 10800 10801 
+## 11389 11393 11395 11402 11404 11409 11410 11413 11415 11425 11430 11432 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10803 10807 10811 10814 10817 10821 10826 10829 10837 10839 10844 10848 
+## 11433 11437 11440 11441 11442 11444 11445 11454 11457 11462 11467 11468 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10855 10863 10867 10871 10874 10876 10878 10879 10882 10883 10885 10886 
+## 11477 11483 11484 11490 11492 11493 11496 11499 11503 11511 11512 11522 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10888 10894 10901 10903 10904 10906 10907 10911 10919 10921 10922 10926 
+## 11524 11525 11528 11534 11538 11539 11541 11547 11550 11556 11558 11559 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10929 10937 10954 10955 10956 10960 10962 10965 10968 10977 10978 10985 
+## 11566 11567 11570 11572 11581 11583 11585 11589 11594 11597 11598 11599 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 10988 10989 10993 10994 10996 10997 11001 11004 11005 11007 11008 11022 
+## 11601 11617 11618 11621 11625 11626 11628 11632 11635 11638 11647 11648 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11023 11024 11027 11028 11029 11030 11031 11032 11035 11036 11037 11043 
+## 11653 11658 11659 11665 11667 11668 11672 11673 11675 11676 11678 11687 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11044 11045 11054 11057 11059 11064 11066 11070 11071 11077 11078 11079 
+## 11691 11693 11697 11698 11700 11702 11707 11709 11710 11711 11712 11713 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11086 11087 11090 11095 11101 11102 11111 11113 11116 11118 11119 11121 
+## 11714 11716 11717 11718 11721 11722 11728 11732 11737 11740 11741 11743 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11127 11129 11133 11144 11149 11150 11153 11154 11165 11168 11170 11177 
+## 11751 11752 11754 11757 11762 11765 11766 11769 11770 11771 11773 11775 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11179 11184 11189 11192 11200 11202 11203 11205 11208 11213 11215 11216 
-##     C     C     C     C     C     C     C     C     B     C     C     C 
-## 11221 11222 11227 11234 11236 11238 11240 11241 11247 11252 11256 11258 
+## 11777 11779 11782 11785 11788 11791 11793 11795 11796 11797 11802 11808 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11262 11268 11270 11277 11280 11281 11288 11289 11290 11293 11300 11311 
+## 11812 11814 11815 11817 11821 11834 11839 11842 11843 11844 11845 11850 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11312 11315 11316 11324 11325 11327 11329 11330 11332 11333 11338 11353 
+## 11852 11855 11857 11860 11861 11870 11871 11872 11875 11878 11881 11883 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11356 11357 11360 11361 11367 11368 11373 11374 11379 11380 11385 11387 
+## 11884 11887 11892 11893 11894 11895 11897 11900 11915 11929 11940 11942 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11390 11395 11396 11398 11401 11403 11411 11412 11421 11427 11435 11445 
+## 11945 11946 11947 11948 11951 11957 11959 11961 11962 11964 11971 11981 
+##     C     C     C     C     C     C     B     C     C     C     C     C 
+## 11983 11984 11990 11992 12008 12013 12018 12020 12023 12027 12032 12035 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11447 11449 11450 11454 11455 11459 11461 11463 11464 11466 11471 11475 
+## 12037 12041 12045 12046 12047 12051 12056 12057 12061 12064 12065 12079 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11476 11477 11478 11480 11481 11484 11487 11488 11491 11495 11500 11502 
+## 12083 12084 12086 12090 12095 12096 12097 12099 12101 12102 12108 12109 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11511 11513 11518 11520 11521 11525 11527 11530 11531 11540 11541 11544 
+## 12111 12117 12118 12121 12122 12124 12125 12126 12128 12129 12130 12136 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11549 11552 11561 11562 11568 11569 11570 11574 11575 11581 11582 11592 
+## 12144 12149 12151 12152 12153 12155 12157 12164 12166 12169 12171 12172 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11593 11599 11601 11603 11604 11613 11621 11622 11625 11627 11628 11632 
+## 12176 12177 12180 12187 12190 12191 12192 12199 12205 12206 12207 12210 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11636 11640 11645 11648 11655 11659 11661 11664 11670 11673 11674 11677 
+## 12214 12222 12224 12232 12234 12249 12252 12253 12256 12257 12261 12273 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11679 11680 11682 11683 11684 11685 11687 11690 11691 11698 11699 11701 
+## 12278 12286 12289 12290 12292 12293 12298 12299 12300 12303 12311 12312 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11703 11705 11707 11711 11713 11715 11718 11719 11723 11727 11732 11733 
+## 12314 12315 12319 12322 12323 12327 12329 12331 12334 12348 12352 12362 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11737 11740 11742 11743 11744 11745 11747 11749 11756 11765 11767 11768 
+## 12366 12367 12368 12370 12376 12379 12381 12385 12391 12395 12407 12410 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11769 11770 11771 11772 11777 11781 11782 11783 11784 11786 11792 11795 
+## 12412 12415 12416 12417 12425 12426 12428 12430 12431 12434 12437 12443 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11804 11814 11824 11825 11826 11827 11829 11838 11840 11845 11848 11850 
-##     C     C     D     D     D     D     C     C     C     C     C     C 
-## 11851 11857 11858 11860 11862 11863 11869 11880 11882 11890 11891 11902 
+## 12455 12462 12467 12468 12470 12471 12472 12476 12477 12478 12480 12481 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11910 11911 11915 11916 11917 11919 11920 11923 11924 11926 11928 11935 
+## 12487 12489 12491 12493 12502 12504 12517 12518 12519 12527 12530 12532 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 11939 11940 11945 11946 11948 11949 11952 11954 11955 11956 11959 11960 
-##     C     C     C     C     C     C     C     C     C     C     B     B 
-## 11963 11965 11968 11978 11982 11983 11984 11986 11991 11996 11997 12002 
+## 12537 12540 12541 12544 12546 12553 12558 12560 12562 12575 12578 12580 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12004 12005 12007 12009 12010 12012 12013 12017 12018 12020 12022 12024 
+## 12581 12582 12585 12586 12590 12592 12593 12594 12596 12599 12600 12607 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12025 12026 12027 12030 12033 12040 12042 12043 12045 12046 12047 12054 
+## 12616 12617 12618 12623 12633 12636 12638 12639 12644 12646 12651 12654 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12055 12062 12065 12066 12067 12068 12071 12078 12080 12083 12084 12089 
+## 12655 12656 12657 12662 12664 12665 12666 12667 12668 12674 12675 12677 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12090 12101 12103 12104 12108 12109 12110 12111 12112 12113 12119 12120 
+## 12682 12683 12689 12692 12698 12699 12703 12706 12712 12715 12716 12718 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12126 12128 12129 12131 12135 12138 12139 12152 12153 12155 12161 12163 
+## 12722 12723 12725 12727 12737 12741 12744 12745 12747 12748 12749 12751 
 ##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12165 12170 12172 12173 12174 12178 12184 12191 12193 12195 12197 12200 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12205 12206 12208 12210 12213 12218 12225 12229 12231 12236 12237 12238 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12241 12246 12250 12252 12255 12257 12260 12261 12264 12265 12266 12267 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12269 12272 12278 12289 12295 12304 12306 12308 12318 12323 12326 12329 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12331 12340 12341 12344 12346 12347 12349 12350 12351 12352 12353 12367 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12375 12376 12381 12389 12391 12397 12404 12405 12406 12407 12408 12409 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12410 12411 12416 12418 12419 12422 12427 12431 12433 12434 12439 12444 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12448 12450 12465 12467 12470 12475 12477 12479 12480 12483 12486 12487 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12491 12492 12493 12494 12496 12502 12505 12508 12516 12519 12524 12527 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12530 12534 12537 12538 12540 12542 12546 12551 12556 12572 12574 12579 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12580 12584 12588 12590 12594 12595 12601 12602 12609 12614 12619 12620 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12621 12622 12623 12627 12629 12631 12635 12636 12638 12639 12656 12658 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12662 12665 12672 12681 12683 12687 12689 12692 12696 12698 12699 12700 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12702 12703 12705 12708 12710 12711 12712 12717 12721 12722 12724 12742 
-##     C     C     C     C     C     C     C     C     C     C     C     C 
-## 12753 12755 12757 12763 12766 12775 12776 12778 12780 12789 12792 12801 
+## 12752 12758 12759 12769 12770 12773 12776 12783 12791 12794 12795 12801 
 ##     C     C     C     C     C     C     C     C     C     C     C     D 
-## 12803 12806 12817 12821 12824 12827 12828 12830 12834 12835 12836 12837 
+## 12804 12805 12816 12824 12825 12826 12829 12832 12836 12842 12845 12848 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 12843 12846 12847 12854 12856 12862 12868 12872 12873 12874 12881 12886 
+## 12852 12853 12854 12857 12859 12862 12867 12869 12870 12871 12873 12886 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 12887 12892 12900 12909 12914 12915 12916 12922 12926 12939 12940 12942 
+## 12887 12891 12894 12897 12898 12907 12911 12915 12918 12924 12925 12930 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 12944 12945 12954 12957 12958 12960 12961 12967 12968 12969 12970 12971 
-##     D     D     D     D     D     C     C     C     C     C     C     D 
-## 12981 12984 12986 12987 12991 12996 12999 13000 13003 13004 13005 13007 
+## 12933 12939 12941 12945 12946 12947 12952 12958 12960 12965 12966 12967 
+##     D     D     D     D     C     D     D     D     D     C     C     C 
+## 12968 12970 12971 12977 12979 12981 12982 12986 12992 12993 13007 13009 
+##     C     C     D     D     D     D     D     D     D     D     D     D 
+## 13011 13012 13015 13021 13027 13031 13033 13039 13040 13041 13042 13049 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13010 13016 13020 13023 13024 13030 13035 13038 13046 13051 13053 13054 
+## 13051 13057 13065 13066 13070 13075 13083 13087 13090 13091 13092 13096 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13055 13062 13069 13070 13071 13073 13078 13081 13086 13088 13091 13100 
+## 13097 13101 13105 13111 13112 13125 13129 13130 13132 13134 13135 13136 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13102 13105 13110 13116 13119 13126 13131 13132 13139 13143 13149 13150 
+## 13142 13144 13150 13155 13156 13161 13164 13165 13170 13171 13177 13180 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13153 13155 13160 13161 13166 13170 13172 13177 13180 13184 13185 13188 
+## 13184 13188 13189 13190 13195 13197 13200 13203 13206 13207 13214 13223 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13192 13193 13195 13199 13200 13202 13204 13206 13208 13211 13212 13215 
+## 13229 13234 13235 13240 13243 13245 13248 13253 13256 13257 13259 13263 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13220 13224 13225 13226 13228 13232 13233 13240 13241 13245 13247 13248 
+## 13270 13276 13279 13281 13287 13290 13292 13294 13295 13299 13301 13302 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13249 13250 13253 13254 13257 13264 13266 13270 13272 13274 13278 13286 
+## 13306 13308 13315 13321 13323 13327 13328 13334 13338 13340 13342 13346 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13293 13297 13299 13324 13325 13326 13329 13330 13334 13340 13344 13345 
+## 13352 13354 13355 13357 13369 13371 13379 13386 13387 13391 13392 13400 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13347 13348 13356 13361 13362 13366 13368 13374 13381 13387 13389 13390 
+## 13404 13409 13418 13421 13429 13430 13431 13433 13434 13436 13443 13446 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13398 13399 13404 13409 13411 13418 13422 13426 13428 13433 13435 13438 
+## 13447 13453 13455 13457 13458 13469 13477 13478 13481 13482 13485 13487 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13445 13449 13450 13454 13458 13459 13461 13464 13466 13467 13471 13474 
+## 13490 13491 13492 13497 13498 13500 13505 13513 13517 13522 13528 13529 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13484 13487 13488 13491 13499 13500 13501 13504 13506 13507 13513 13514 
+## 13530 13536 13541 13542 13544 13545 13546 13547 13550 13557 13559 13564 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13517 13518 13526 13528 13532 13534 13536 13540 13542 13547 13550 13553 
+## 13569 13572 13574 13580 13583 13585 13586 13588 13590 13592 13595 13596 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13556 13557 13560 13561 13563 13566 13567 13570 13574 13579 13591 13595 
+## 13597 13606 13608 13609 13610 13611 13613 13615 13616 13620 13625 13626 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13596 13598 13601 13602 13604 13609 13610 13612 13614 13615 13628 13634 
+## 13628 13634 13638 13641 13646 13648 13651 13652 13654 13655 13666 13671 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13641 13642 13643 13644 13647 13649 13651 13659 13661 13667 13671 13678 
+## 13674 13675 13676 13682 13683 13685 13692 13693 13696 13697 13706 13709 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13679 13680 13690 13691 13694 13696 13698 13706 13707 13711 13714 13719 
+## 13720 13725 13726 13729 13731 13738 13742 13750 13767 13770 13771 13777 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13723 13726 13727 13728 13729 13731 13734 13740 13749 13752 13755 13767 
+## 13778 13782 13784 13787 13788 13791 13793 13794 13795 13796 13808 13815 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13774 13777 13778 13779 13780 13781 13787 13789 13792 13794 13796 13797 
+## 13816 13818 13820 13822 13826 13830 13833 13838 13841 13846 13852 13856 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13798 13812 13813 13815 13818 13826 13830 13832 13844 13847 13849 13856 
+## 13862 13867 13872 13874 13875 13886 13887 13892 13894 13897 13898 13900 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13857 13859 13863 13864 13866 13871 13876 13881 13886 13888 13896 13897 
+## 13902 13908 13915 13916 13917 13923 13935 13937 13951 13955 13962 13966 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13898 13899 13903 13911 13914 13917 13934 13938 13939 13940 13942 13943 
+## 13969 13970 13975 13978 13981 13985 13992 13994 13997 14000 14002 14004 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 13945 13949 13957 13963 13965 13967 13976 13981 13993 13994 13999 14001 
+## 14005 14007 14010 14012 14015 14016 14025 14027 14028 14029 14031 14034 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14003 14004 14011 14012 14014 14018 14019 14021 14023 14024 14028 14030 
+## 14035 14040 14044 14050 14051 14054 14062 14063 14064 14065 14073 14076 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14032 14037 14038 14039 14045 14049 14050 14054 14055 14059 14064 14067 
+## 14086 14087 14089 14090 14097 14098 14099 14101 14102 14106 14107 14114 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14069 14071 14077 14078 14081 14084 14086 14088 14090 14092 14093 14094 
-##     D     D     D     D     D     C     D     D     C     C     C     C 
-## 14098 14099 14105 14107 14108 14113 14125 14127 14130 14131 14132 14135 
+## 14120 14124 14126 14127 14128 14131 14133 14136 14139 14144 14147 14148 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14136 14137 14140 14142 14143 14145 14147 14148 14152 14154 14155 14159 
+## 14150 14152 14159 14165 14169 14175 14182 14186 14187 14192 14194 14196 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14160 14161 14165 14172 14176 14177 14178 14183 14185 14187 14191 14192 
+## 14199 14208 14212 14218 14220 14222 14225 14226 14242 14248 14250 14254 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14202 14203 14209 14210 14212 14213 14219 14220 14221 14222 14228 14229 
+## 14258 14260 14264 14269 14275 14277 14278 14279 14281 14285 14288 14291 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14234 14237 14239 14243 14244 14257 14258 14260 14261 14263 14266 14268 
+## 14293 14294 14296 14300 14303 14305 14313 14315 14319 14322 14326 14328 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14269 14270 14274 14278 14285 14289 14296 14298 14299 14300 14304 14306 
+## 14329 14333 14339 14342 14343 14349 14350 14354 14357 14360 14364 14365 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14312 14314 14316 14317 14325 14326 14327 14329 14332 14335 14339 14340 
+## 14368 14372 14373 14377 14379 14381 14383 14385 14390 14396 14399 14402 
+##     D     C     D     D     D     D     D     D     D     D     D     D 
+## 14403 14404 14405 14406 14409 14414 14415 14417 14418 14423 14427 14429 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14341 14344 14345 14348 14349 14350 14359 14363 14364 14366 14367 14368 
+## 14432 14435 14438 14439 14441 14444 14446 14465 14470 14472 14473 14475 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14372 14373 14376 14378 14379 14384 14385 14386 14387 14389 14391 14398 
-##     C     C     D     D     D     D     D     D     D     C     D     D 
-## 14409 14412 14415 14418 14419 14425 14432 14433 14434 14441 14442 14452 
+## 14477 14483 14484 14488 14489 14490 14492 14493 14502 14504 14505 14516 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14454 14455 14461 14462 14470 14473 14475 14477 14480 14481 14485 14487 
+## 14521 14522 14523 14524 14526 14530 14536 14537 14538 14539 14541 14545 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14489 14499 14502 14514 14518 14519 14520 14521 14523 14531 14533 14540 
+## 14550 14553 14554 14557 14558 14560 14562 14563 14566 14567 14570 14573 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14541 14545 14547 14550 14553 14560 14568 14570 14575 14579 14581 14582 
+## 14575 14576 14580 14581 14586 14588 14591 14592 14593 14596 14602 14606 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14584 14585 14592 14599 14601 14602 14611 14613 14618 14620 14628 14629 
+## 14609 14615 14621 14623 14626 14628 14638 14644 14645 14646 14649 14650 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14632 14633 14636 14643 14645 14647 14649 14657 14669 14677 14678 14681 
+## 14656 14657 14659 14663 14667 14672 14676 14677 14679 14680 14681 14686 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14682 14684 14686 14692 14695 14699 14713 14716 14722 14723 14727 14730 
+## 14687 14688 14693 14697 14701 14702 14703 14705 14709 14715 14717 14720 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14731 14733 14734 14740 14742 14745 14746 14747 14748 14749 14754 14755 
+## 14724 14726 14731 14737 14741 14742 14743 14747 14749 14750 14751 14753 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14758 14762 14763 14769 14774 14777 14779 14782 14787 14788 14789 14808 
+## 14756 14757 14758 14759 14760 14761 14763 14764 14767 14768 14773 14779 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14809 14810 14812 14814 14822 14824 14827 14831 14836 14837 14839 14840 
+## 14781 14783 14787 14792 14793 14794 14795 14801 14804 14810 14813 14817 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14841 14851 14855 14859 14864 14865 14868 14869 14871 14873 14874 14877 
+## 14818 14820 14824 14829 14834 14835 14838 14839 14844 14847 14851 14857 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14885 14889 14892 14893 14894 14896 14900 14906 14911 14912 14914 14918 
+## 14862 14874 14876 14878 14881 14883 14886 14888 14889 14891 14894 14900 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14919 14920 14927 14946 14951 14952 14953 14957 14959 14962 14963 14965 
+## 14906 14909 14910 14912 14914 14915 14919 14921 14925 14930 14932 14934 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 14978 14981 14983 14988 14993 14999 15005 15016 15019 15023 15026 15027 
+## 14935 14936 14939 14943 14944 14950 14953 14966 14973 14974 14976 14977 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15030 15032 15036 15037 15041 15047 15048 15058 15064 15066 15068 15070 
+## 14979 14981 14982 14989 14992 14997 14998 14999 15002 15005 15014 15015 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15072 15078 15083 15086 15090 15094 15098 15100 15103 15104 15106 15107 
+## 15017 15022 15025 15027 15032 15033 15035 15047 15055 15056 15058 15059 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15109 15110 15116 15119 15121 15124 15125 15132 15134 15137 15146 15154 
+## 15064 15065 15066 15072 15074 15075 15078 15080 15087 15092 15096 15100 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15155 15158 15159 15160 15162 15163 15166 15167 15168 15170 15172 15173 
+## 15101 15109 15111 15114 15115 15116 15117 15127 15131 15133 15136 15142 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15175 15177 15179 15181 15182 15183 15185 15190 15199 15200 15207 15208 
+## 15144 15145 15148 15150 15153 15154 15159 15160 15163 15170 15173 15174 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15209 15210 15217 15218 15229 15231 15233 15234 15239 15246 15256 15257 
+## 15175 15177 15181 15184 15190 15191 15198 15199 15210 15213 15219 15223 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15263 15271 15273 15274 15275 15278 15280 15284 15294 15295 15300 15302 
+## 15224 15225 15229 15235 15237 15242 15243 15244 15245 15251 15253 15254 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15304 15306 15308 15309 15310 15315 15321 15324 15325 15326 15327 15328 
-##     D     D     D     D     D     D     C     C     C     C     C     D 
-## 15334 15335 15336 15337 15338 15340 15341 15344 15348 15349 15352 15357 
+## 15255 15258 15259 15260 15268 15270 15277 15282 15288 15289 15295 15296 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15358 15359 15361 15362 15363 15364 15368 15369 15370 15371 15372 15374 
+## 15298 15306 15307 15310 15318 15319 15327 15330 15331 15332 15338 15342 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15375 15376 15379 15380 15381 15383 15386 15393 15395 15396 15400 15403 
+## 15343 15344 15352 15357 15362 15364 15365 15367 15368 15372 15378 15380 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15407 15412 15414 15415 15416 15420 15426 15427 15433 15435 15437 15438 
+## 15382 15384 15389 15392 15393 15397 15398 15400 15407 15411 15413 15414 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15440 15444 15447 15450 15452 15458 15460 15464 15466 15468 15470 15479 
+## 15417 15432 15434 15436 15438 15441 15443 15455 15456 15458 15469 15470 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15481 15482 15483 15491 15498 15500 15503 15506 15513 15514 15519 15525 
+## 15471 15473 15474 15475 15483 15490 15492 15499 15500 15507 15508 15509 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15530 15532 15538 15542 15546 15549 15553 15559 15563 15564 15565 15568 
+## 15510 15519 15526 15527 15531 15533 15534 15538 15547 15550 15551 15552 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15569 15572 15574 15579 15583 15586 15593 15601 15602 15605 15606 15614 
+## 15553 15554 15556 15557 15559 15563 15565 15566 15568 15571 15575 15578 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15617 15619 15621 15622 15624 15629 15631 15632 15633 15636 15642 15643 
+## 15585 15586 15587 15589 15591 15592 15595 15598 15599 15600 15602 15605 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15646 15647 15652 15655 15657 15664 15669 15670 15673 15675 15676 15681 
+## 15614 15621 15632 15633 15635 15637 15642 15643 15646 15649 15652 15654 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15684 15689 15691 15693 15697 15707 15722 15723 15733 15735 15749 15751 
+## 15658 15660 15661 15669 15674 15675 15676 15677 15679 15681 15682 15683 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15752 15753 15754 15755 15756 15759 15761 15769 15772 15776 15784 15792 
+## 15685 15689 15690 15692 15695 15696 15699 15700 15705 15706 15714 15715 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15794 15797 15799 15803 15804 15807 15809 15810 15813 15814 15817 15818 
+## 15717 15718 15722 15723 15726 15729 15731 15732 15740 15742 15747 15750 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15821 15824 15827 15838 15841 15842 15845 15847 15848 15850 15852 15854 
+## 15754 15760 15764 15769 15773 15778 15784 15798 15799 15804 15810 15813 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15855 15858 15862 15866 15874 15875 15888 15889 15892 15895 15897 15898 
+## 15814 15816 15819 15822 15824 15825 15826 15832 15835 15841 15845 15847 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15899 15901 15905 15906 15910 15912 15913 15916 15917 15919 15921 15928 
+## 15848 15855 15858 15864 15868 15872 15873 15876 15877 15879 15884 15885 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15944 15947 15951 15953 15954 15956 15957 15959 15960 15963 15964 15967 
+## 15887 15890 15892 15894 15898 15901 15902 15903 15926 15930 15935 15937 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 15968 15969 15971 15972 15973 15974 15981 15984 15988 15995 15998 16000 
+## 15938 15939 15941 15946 15949 15950 15951 15953 15955 15956 15960 15961 
 ##     D     D     D     D     D     D     D     D     D     D     D     D 
-## 16006 16008 16011 16017 16026 16029 16035 16037 16038 16039 16042 16044 
+## 15962 15975 15979 15980 15981 15987 15993 15994 15996 15997 16000 16001 
+##     D     D     D     D     D     D     D     D     D     D     D     D 
+## 16006 16012 16015 16020 16024 16027 16031 16039 16040 16049 16050 16051 
 ##     D     D     D     E     E     E     E     E     E     E     E     E 
-## 16047 16049 16054 16057 16058 16059 16060 16061 16063 16064 16069 16074 
+## 16055 16061 16065 16066 16073 16076 16078 16082 16085 16087 16092 16094 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16077 16080 16082 16097 16098 16100 16103 16104 16105 16111 16113 16114 
+## 16101 16102 16106 16123 16126 16131 16135 16136 16137 16139 16145 16147 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16116 16120 16121 16124 16130 16132 16138 16139 16141 16143 16147 16148 
+## 16151 16158 16160 16164 16169 16174 16177 16182 16189 16192 16197 16198 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16151 16154 16157 16167 16172 16174 16176 16177 16180 16184 16186 16189 
+## 16210 16212 16215 16220 16223 16224 16226 16227 16228 16231 16232 16233 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16190 16191 16192 16194 16195 16201 16202 16214 16219 16220 16221 16222 
+## 16243 16244 16246 16251 16257 16259 16261 16264 16267 16268 16269 16274 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16224 16227 16228 16232 16234 16240 16251 16252 16253 16258 16262 16265 
+## 16282 16286 16295 16298 16299 16301 16305 16308 16311 16315 16321 16323 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16270 16274 16277 16281 16288 16294 16297 16300 16302 16309 16319 16321 
+## 16330 16331 16335 16336 16337 16344 16345 16348 16349 16350 16356 16358 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16322 16329 16330 16335 16337 16346 16352 16353 16355 16356 16360 16370 
+## 16361 16363 16366 16375 16378 16379 16384 16387 16393 16396 16401 16403 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16377 16384 16388 16393 16395 16396 16400 16409 16411 16414 16415 16416 
+## 16404 16410 16412 16413 16424 16426 16428 16430 16432 16435 16436 16440 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16418 16421 16422 16430 16435 16436 16437 16438 16439 16441 16442 16443 
+## 16446 16448 16457 16467 16468 16475 16477 16478 16480 16482 16486 16488 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16444 16445 16447 16454 16455 16460 16461 16463 16467 16469 16479 16481 
+## 16489 16501 16504 16508 16509 16513 16515 16516 16517 16519 16521 16522 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16483 16484 16485 16486 16488 16490 16493 16498 16499 16506 16509 16513 
+## 16526 16528 16529 16531 16532 16535 16536 16539 16540 16541 16544 16545 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16514 16519 16521 16523 16524 16529 16534 16538 16546 16550 16557 16559 
+## 16547 16555 16563 16574 16575 16576 16577 16579 16586 16588 16593 16594 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16561 16563 16570 16573 16575 16581 16584 16585 16586 16587 16588 16597 
+## 16595 16596 16600 16613 16614 16617 16618 16620 16622 16628 16630 16631 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16599 16600 16604 16609 16610 16619 16624 16625 16626 16627 16628 16632 
+## 16636 16639 16644 16646 16647 16655 16657 16660 16661 16662 16669 16676 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16633 16636 16637 16638 16640 16641 16644 16656 16661 16665 16667 16676 
+## 16685 16687 16691 16692 16694 16700 16701 16708 16710 16721 16722 16724 
+##     E     E     E     E     E     E     E     E     E     D     E     E 
+## 16727 16730 16731 16733 16735 16738 16739 16745 16746 16751 16753 16755 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16681 16682 16684 16692 16693 16699 16700 16703 16704 16708 16712 16714 
+## 16756 16761 16767 16768 16771 16775 16778 16781 16784 16790 16791 16793 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16717 16723 16724 16731 16733 16739 16741 16742 16744 16745 16746 16750 
+## 16794 16798 16804 16808 16811 16813 16815 16818 16821 16823 16827 16830 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16754 16755 16773 16777 16778 16795 16805 16808 16809 16811 16813 16816 
+## 16833 16837 16840 16841 16842 16843 16846 16850 16861 16863 16864 16871 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16818 16825 16828 16833 16837 16840 16843 16845 16849 16850 16851 16852 
-##     E     E     E     E     E     E     E     E     D     E     D     E 
-## 16855 16872 16873 16874 16877 16881 16885 16893 16894 16895 16896 16898 
+## 16874 16880 16881 16892 16900 16905 16906 16907 16910 16911 16916 16918 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16901 16904 16909 16912 16914 16917 16918 16919 16922 16924 16925 16930 
+## 16920 16921 16928 16929 16936 16937 16951 16952 16956 16958 16963 16972 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16937 16942 16943 16945 16953 16954 16956 16958 16960 16962 16966 16973 
+## 16973 16977 16979 16980 16982 16984 16985 16986 16988 16993 16994 16998 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 16982 16985 16992 16993 17001 17003 17007 17022 17023 17028 17029 17030 
+## 17000 17002 17005 17007 17009 17010 17011 17013 17014 17018 17020 17022 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17031 17032 17033 17039 17041 17042 17043 17050 17054 17057 17058 17060 
+## 17024 17032 17033 17043 17046 17049 17051 17052 17053 17055 17056 17062 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17063 17065 17066 17067 17068 17071 17075 17083 17084 17086 17091 17093 
+## 17067 17068 17073 17078 17092 17094 17101 17102 17109 17110 17111 17114 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17097 17101 17102 17104 17106 17109 17121 17123 17128 17132 17134 17140 
+## 17116 17117 17123 17125 17128 17130 17133 17141 17149 17150 17152 17154 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17141 17143 17158 17163 17165 17166 17172 17175 17177 17178 17183 17187 
+## 17156 17158 17160 17167 17180 17183 17184 17185 17186 17187 17192 17196 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17193 17196 17197 17203 17212 17213 17215 17218 17222 17225 17227 17229 
+## 17200 17210 17213 17214 17216 17218 17220 17225 17232 17234 17235 17237 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17230 17232 17233 17234 17236 17238 17246 17253 17256 17258 17259 17263 
+## 17241 17243 17245 17246 17247 17252 17254 17257 17260 17262 17264 17265 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17266 17268 17269 17276 17278 17280 17281 17288 17293 17297 17298 17300 
+## 17267 17269 17287 17295 17309 17314 17316 17317 17321 17322 17323 17324 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17305 17308 17311 17317 17323 17324 17329 17332 17333 17335 17336 17341 
+## 17326 17332 17335 17336 17338 17339 17344 17345 17348 17349 17356 17358 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17344 17345 17355 17356 17358 17361 17364 17372 17373 17377 17384 17386 
+## 17361 17362 17365 17370 17374 17382 17387 17388 17391 17392 17393 17399 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17387 17388 17389 17392 17393 17394 17402 17403 17404 17408 17416 17419 
+## 17403 17404 17405 17409 17411 17413 17414 17418 17420 17421 17425 17431 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17424 17431 17432 17434 17435 17437 17440 17443 17445 17449 17450 17452 
+## 17438 17444 17448 17451 17453 17455 17457 17458 17473 17476 17480 17482 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17453 17455 17465 17469 17472 17474 17477 17481 17483 17492 17499 17503 
+## 17484 17485 17487 17489 17496 17497 17505 17506 17507 17509 17512 17513 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17505 17507 17508 17511 17513 17516 17519 17521 17522 17523 17526 17528 
+## 17514 17520 17521 17523 17524 17530 17538 17539 17541 17544 17553 17556 
+##     E     E     E     E     E     E     D     E     E     E     E     E 
+## 17557 17564 17565 17567 17569 17573 17575 17578 17579 17580 17583 17588 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17529 17531 17532 17536 17539 17542 17546 17553 17557 17558 17560 17562 
+## 17589 17600 17602 17604 17605 17612 17615 17617 17621 17625 17627 17637 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17563 17568 17569 17574 17575 17579 17582 17588 17590 17594 17595 17596 
+## 17638 17641 17645 17650 17651 17652 17653 17655 17656 17657 17658 17661 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17602 17604 17605 17608 17610 17616 17617 17619 17620 17621 17622 17624 
+## 17664 17667 17669 17672 17686 17687 17689 17691 17693 17694 17699 17700 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17625 17630 17632 17634 17638 17639 17640 17641 17643 17650 17654 17655 
+## 17702 17705 17707 17715 17720 17730 17738 17742 17751 17753 17755 17759 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17657 17663 17668 17669 17670 17671 17677 17686 17688 17689 17690 17693 
+## 17764 17767 17771 17773 17774 17776 17779 17781 17784 17785 17788 17790 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17700 17710 17720 17721 17722 17723 17724 17733 17734 17741 17743 17747 
+## 17802 17803 17804 17805 17806 17821 17824 17826 17827 17828 17831 17835 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17749 17750 17755 17763 17766 17767 17775 17781 17783 17786 17791 17793 
+## 17840 17841 17843 17844 17846 17849 17852 17855 17856 17863 17867 17868 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17796 17797 17800 17802 17803 17804 17807 17808 17811 17813 17818 17819 
+## 17877 17878 17883 17884 17886 17888 17889 17895 17898 17900 17903 17904 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17820 17821 17825 17826 17829 17832 17835 17837 17838 17843 17844 17845 
+## 17911 17919 17920 17921 17922 17925 17940 17946 17950 17951 17957 17964 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17846 17847 17851 17854 17857 17863 17865 17868 17869 17870 17872 17884 
+## 17970 17973 17974 17978 17983 17995 17997 17998 18000 18004 18011 18012 
+##     E     E     E     E     E     E     D     E     E     E     E     E 
+## 18013 18016 18021 18022 18025 18026 18034 18039 18040 18049 18051 18052 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17885 17888 17890 17896 17898 17901 17906 17907 17908 17913 17920 17921 
+## 18055 18061 18063 18064 18067 18074 18079 18080 18085 18087 18089 18090 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 17929 17930 17931 17935 17950 17952 17966 17967 17969 17973 17975 17980 
-##     E     E     E     E     E     E     E     D     E     E     E     E 
-## 17984 17985 17986 17987 17993 17995 17999 18000 18001 18004 18006 18008 
-##     E     E     E     E     E     D     E     E     E     E     E     E 
-## 18012 18014 18022 18024 18025 18029 18036 18037 18053 18056 18061 18066 
+## 18095 18096 18099 18100 18101 18103 18106 18120 18129 18131 18132 18133 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18068 18074 18077 18084 18085 18087 18099 18101 18103 18106 18107 18108 
+## 18136 18140 18141 18143 18147 18148 18149 18152 18155 18160 18163 18167 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18112 18114 18124 18133 18135 18140 18143 18146 18154 18155 18162 18163 
+## 18177 18181 18182 18183 18187 18189 18190 18191 18192 18197 18202 18204 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18165 18170 18172 18181 18182 18183 18188 18190 18197 18198 18199 18203 
+## 18205 18209 18210 18217 18222 18223 18228 18236 18237 18239 18240 18242 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18204 18207 18210 18213 18214 18218 18219 18224 18226 18227 18229 18232 
+## 18243 18244 18245 18247 18248 18251 18255 18258 18261 18267 18268 18269 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18234 18235 18238 18240 18242 18246 18247 18248 18253 18256 18260 18262 
+## 18270 18273 18280 18283 18286 18288 18289 18297 18299 18300 18306 18307 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18267 18271 18275 18277 18278 18279 18280 18290 18291 18293 18295 18296 
+## 18308 18311 18314 18318 18319 18321 18323 18325 18330 18331 18333 18335 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18316 18319 18323 18329 18330 18333 18339 18340 18343 18345 18352 18356 
+## 18338 18340 18342 18343 18349 18356 18358 18361 18363 18364 18365 18366 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18360 18361 18362 18363 18364 18368 18369 18377 18379 18381 18382 18386 
+## 18369 18373 18375 18376 18379 18384 18387 18390 18391 18392 18395 18397 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18388 18391 18393 18394 18397 18398 18400 18402 18407 18411 18413 18417 
+## 18400 18401 18405 18407 18408 18409 18410 18412 18417 18421 18423 18426 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18419 18440 18443 18446 18448 18450 18452 18463 18472 18474 18476 18477 
+## 18428 18429 18430 18432 18433 18434 18442 18448 18453 18463 18464 18468 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18478 18481 18487 18488 18495 18499 18510 18512 18514 18515 18516 18517 
+## 18469 18470 18471 18473 18477 18478 18481 18483 18492 18496 18497 18500 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18521 18522 18537 18550 18551 18556 18563 18571 18572 18583 18590 18597 
+## 18501 18502 18505 18509 18510 18511 18516 18518 18521 18525 18528 18529 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18604 18606 18610 18612 18614 18615 18617 18618 18628 18639 18644 18649 
+## 18530 18531 18535 18537 18538 18539 18544 18545 18547 18553 18556 18558 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18651 18652 18653 18656 18658 18659 18664 18665 18672 18677 18679 18685 
+## 18564 18569 18582 18591 18593 18594 18596 18604 18605 18606 18620 18624 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18687 18690 18691 18694 18697 18700 18701 18702 18704 18709 18710 18714 
+## 18630 18632 18634 18636 18644 18645 18649 18651 18655 18656 18657 18658 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18716 18717 18721 18723 18726 18728 18735 18738 18740 18742 18745 18748 
+## 18662 18665 18666 18668 18681 18683 18685 18691 18697 18703 18705 18706 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18755 18756 18761 18765 18769 18771 18773 18774 18778 18779 18781 18785 
+## 18707 18712 18716 18719 18721 18722 18726 18728 18732 18742 18746 18753 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18787 18788 18789 18792 18794 18800 18802 18806 18807 18811 18813 18814 
+## 18768 18770 18772 18773 18775 18776 18780 18782 18785 18787 18790 18793 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18815 18816 18819 18824 18825 18828 18831 18835 18836 18842 18845 18851 
+## 18802 18803 18804 18806 18808 18809 18812 18813 18814 18815 18816 18823 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18853 18858 18863 18864 18866 18869 18870 18871 18874 18876 18879 18880 
+## 18824 18828 18829 18830 18832 18844 18847 18849 18852 18853 18855 18857 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18883 18885 18886 18887 18889 18893 18900 18903 18904 18906 18907 18915 
+## 18858 18861 18862 18863 18865 18868 18872 18873 18875 18877 18881 18882 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18920 18927 18935 18937 18939 18942 18945 18949 18950 18952 18955 18957 
+## 18883 18884 18889 18893 18895 18899 18913 18914 18916 18917 18919 18923 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 18959 18966 18971 18981 18986 18987 18991 18992 18993 18994 18998 18999 
+## 18928 18943 18944 18954 18956 18957 18959 18970 18971 18978 18980 18983 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19004 19007 19009 19010 19014 19015 19016 19018 19020 19021 19025 19026 
+## 18984 18986 18988 18989 18993 18997 19000 19006 19009 19010 19011 19014 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19028 19031 19033 19035 19038 19039 19042 19047 19049 19051 19055 19057 
+## 19016 19025 19037 19038 19040 19044 19046 19047 19051 19053 19054 19056 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19058 19059 19061 19066 19069 19073 19077 19078 19081 19090 19094 19096 
+## 19059 19064 19065 19067 19070 19071 19072 19073 19075 19079 19081 19086 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19100 19102 19103 19106 19107 19110 19111 19114 19117 19120 19123 19126 
+## 19087 19089 19094 19098 19099 19102 19103 19106 19109 19113 19116 19119 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19128 19132 19133 19135 19141 19149 19151 19153 19166 19173 19174 19175 
+## 19121 19123 19124 19132 19137 19141 19145 19149 19151 19154 19156 19157 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19176 19178 19192 19194 19210 19213 19214 19215 19217 19224 19228 19230 
+## 19163 19168 19173 19174 19177 19178 19181 19185 19187 19188 19191 19194 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19232 19236 19237 19240 19243 19245 19246 19250 19253 19255 19256 19260 
+## 19200 19203 19205 19209 19217 19222 19223 19226 19229 19230 19236 19237 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19262 19264 19265 19274 19281 19286 19296 19298 19301 19305 19306 19307 
+## 19243 19246 19251 19254 19258 19261 19264 19278 19280 19282 19287 19289 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19309 19311 19312 19315 19323 19332 19335 19336 19339 19340 19341 19343 
+## 19297 19301 19304 19305 19306 19311 19330 19338 19340 19345 19347 19348 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19345 19347 19348 19352 19355 19357 19362 19363 19364 19366 19368 19375 
+## 19358 19363 19364 19365 19367 19369 19376 19387 19389 19394 19395 19396 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19381 19384 19388 19393 19396 19398 19406 19409 19415 19421 19422 19425 
+## 19402 19405 19407 19410 19413 19414 19418 19423 19424 19425 19430 19435 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19426 19429 19430 19437 19439 19441 19446 19447 19452 19454 19455 19456 
+## 19440 19441 19445 19446 19450 19456 19463 19464 19465 19474 19480 19487 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19461 19462 19466 19468 19472 19483 19484 19489 19496 19498 19502 19503 
+## 19488 19491 19492 19493 19498 19499 19501 19502 19508 19512 19520 19522 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19507 19509 19510 19513 19514 19515 19518 19522 19525 19537 19541 19544 
+## 19523 19526 19529 19532 19533 19540 19541 19542 19546 19548 19550 19551 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19560 19576 19584 19588 19591 19593 19594 19599 19601 19602 19605 19610 
+## 19556 19557 19562 19565 19574 19575 19577 19578 19585 19596 19600 19606 
 ##     E     E     E     E     E     E     E     E     E     E     E     E 
-## 19615 19617 19618 19620 19622 
+## 19607 19610 19611 19614 19620 
 ##     E     E     E     E     E 
 ## Levels: A B C D E
 ```
